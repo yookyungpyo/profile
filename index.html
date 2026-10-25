@@ -75,6 +75,8 @@ nav.top {
 }
 nav.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 60px; }
 .brand { font-weight: 700; letter-spacing: -0.01em; display: flex; align-items: baseline; gap: 10px; min-width: 0; }
+.brand { color: var(--ink); text-decoration: none; cursor: pointer; }
+.brand:hover small { text-decoration: underline; text-underline-offset: 4px; }
 .brand { align-items: center; font-family: "Nanum Pen Script", "Gaegu", cursive; font-weight: 400; font-size: 32px; line-height: 1; letter-spacing: 0; }
 .brand small { font-family: "Nanum Pen Script", "Gaegu", cursive; font-weight: 400; font-size: 26px; line-height: 1; letter-spacing: .01em; color: var(--accent); padding: 2px 0 2px 12px; border-left: 1px solid var(--line); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transform: rotate(-1.2deg); transform-origin: left center; }
 @media (max-width: 1100px) { .links a { display: none; } }
@@ -82,7 +84,8 @@ nav.top .wrap { display: flex; align-items: center; justify-content: space-betwe
 @media (max-width: 420px) { .brand small { font-size: 18px; } }
 .links { display: flex; gap: 4px; }
 .links a { color: var(--muted); text-decoration: none; font-size: 14px; padding: 6px 12px; border-radius: 999px; }
-.links a:hover { color: var(--ink); background: var(--surface-2); }
+.links a { transition: color .2s, background .2s; }
+.links a:hover, .links a:focus-visible { color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
 .cta { font-size: 14px; font-weight: 600; text-decoration: none; padding: 8px 16px; border-radius: 999px; background: var(--ink); color: var(--bg); white-space: nowrap; }
 
 /* Hero */
@@ -451,7 +454,7 @@ footer { padding-block: 0 48px; color: var(--muted); font-size: 13px; display: f
 <body>
 <nav class="top" aria-label="섹션 이동">
   <div class="wrap">
-    <span class="brand">유경표<small>고객의 문제에서 시작해 수행의 끝까지 책임지는 사람</small></span>
+    <a class="brand" href="#" id="to-top" title="맨 위로">유경표<small>고객의 문제에서 시작해 수행의 끝까지 책임지는 사람</small></a>
     <div class="links">
       <a href="#skills">핵심 역량</a><a href="#career">경력</a><a href="#projects">대표 사업</a><a href="#ax">AI·AX 활동</a><a href="#about">프로필</a>
     </div>
@@ -1026,6 +1029,9 @@ footer { padding-block: 0 48px; color: var(--muted); font-size: 13px; display: f
       requestAnimationFrame(() => { big.style.setProperty('--py', Math.min(scrollY, 900) * 0.35 + 'px'); ticking = false; });
     }, { passive: true });
   }
+
+  // 상단 이름·수식어를 누르면 맨 위로
+  document.getElementById('to-top')?.addEventListener('click', e => { e.preventDefault(); scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); });
 
   const copy = document.getElementById('copy');
   copy.addEventListener('click', () => {
