@@ -442,7 +442,6 @@ footer { padding-block: 0 48px; color: var(--muted); font-size: 13px; display: f
     <span class="brand">유경표<small>고객의 문제에서 시작해 수행의 끝까지 책임지는 사람</small></span>
     <div class="links">
       <a href="#skills">역량</a><a href="#career">경력</a><a href="#projects">사업</a><a href="#ax">AX</a><a href="#about">소개</a>
-      <button type="button" class="sec-toggle" id="toggle-all">모두 접기</button>
     </div>
     <a class="cta" href="#contact">연락하기</a>
   </div>
@@ -979,20 +978,18 @@ footer { padding-block: 0 48px; color: var(--muted); font-size: 13px; display: f
   const SECS = ['skills', 'career', 'projects', 'ax', 'about'].map(id => document.getElementById(id));
   const load = () => { try { const v = localStorage.getItem('pf.collapsed'); return v === null ? null : JSON.parse(v); } catch (e) { return null; } };
   const save = () => { try { localStorage.setItem('pf.collapsed', JSON.stringify(SECS.filter(s => s.classList.contains('collapsed')).map(s => s.id))); } catch (e) {} };
-  const allBtn = document.getElementById('toggle-all');
   const setSec = (s, closed) => {
     s.classList.toggle('collapsed', closed);
     const b = s.querySelector('.sec-head .sec-toggle');
     b.setAttribute('aria-expanded', String(!closed));
     b.querySelector('span').textContent = closed ? '펼치기' : '접기';
   };
-  const syncAll = () => { allBtn.textContent = SECS.every(s => s.classList.contains('collapsed')) ? '모두 펼치기' : '모두 접기'; };
+  const syncAll = () => {};
   const saved = load();
   SECS.forEach(s => {
     setSec(s, saved ? saved.includes(s.id) : true);   // 처음 여는 사람은 모두 접힌 상태로 시작
     s.querySelector('.sec-head .sec-toggle').addEventListener('click', () => { setSec(s, !s.classList.contains('collapsed')); save(); syncAll(); });
   });
-  allBtn.addEventListener('click', () => { const close = !SECS.every(s => s.classList.contains('collapsed')); SECS.forEach(s => setSec(s, close)); save(); syncAll(); });
   document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', () => {
     const s = document.getElementById(a.getAttribute('href').slice(1));
     if (s && s.classList.contains('collapsed')) { setSec(s, false); save(); syncAll(); }
