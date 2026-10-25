@@ -1,0 +1,1017 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="공공 SI 영업·제안 총괄·AX까지 — 유경표 포트폴리오">
+<meta property="og:title" content="유경표 포트폴리오">
+<meta property="og:description" content="변하지 않는 원칙, 가장 앞선 AI 실행력. 영업부터 제안·수행·사후관리까지.">
+<meta property="og:image" content="photo.jpg">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>유경표 포트폴리오</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+/* Layout: 고정 글래스 내비 + 벤토 그리드 히어로 + 카드 섹션. 다크 우선, 라이트 지원 */
+:root {
+  --bg: #0b0d0e;
+  --surface: #131618;
+  --surface-2: #1a1e21;
+  --ink: #eef1f0;
+  --muted: #8a9491;
+  --line: rgba(255,255,255,.08);
+  --accent: #3ee0bf;
+  --accent-ink: #04140f;
+  --glow: rgba(62,224,191,.18);
+  --sans: "Geist", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --mono: "Geist Mono", ui-monospace, Consolas, monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f6f7f6; --surface: #ffffff; --surface-2: #eef1ef; --ink: #0e1211; --muted: #5f6a67;
+    --line: rgba(10,20,18,.09); --accent: #0a9f84; --accent-ink: #ffffff; --glow: rgba(10,159,132,.14);
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #f6f7f6; --surface: #ffffff; --surface-2: #eef1ef; --ink: #0e1211; --muted: #5f6a67;
+  --line: rgba(10,20,18,.09); --accent: #0a9f84; --accent-ink: #ffffff; --glow: rgba(10,159,132,.14);
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--sans); font-size: 16px; line-height: 1.65;
+  word-break: keep-all; -webkit-font-smoothing: antialiased;
+  background-image: radial-gradient(900px 500px at 85% -10%, var(--glow), transparent 70%);
+  background-repeat: no-repeat;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.wrap {
+  max-width: 1440px; margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { margin: 0; text-wrap: balance; letter-spacing: -0.02em; }
+p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+.label { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; }
+
+/* Nav */
+nav.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%);
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  border-bottom: 1px solid var(--line);
+}
+nav.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 60px; }
+.brand { font-weight: 700; letter-spacing: -0.01em; display: flex; align-items: baseline; gap: 10px; min-width: 0; }
+.brand small { font-weight: 500; font-size: 13px; color: var(--muted); padding-left: 10px; border-left: 1px solid var(--line); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 420px) { .brand small { font-size: 12px; } }
+.links { display: flex; gap: 4px; }
+.links a { color: var(--muted); text-decoration: none; font-size: 14px; padding: 6px 12px; border-radius: 999px; }
+.links a:hover { color: var(--ink); background: var(--surface-2); }
+.cta { font-size: 14px; font-weight: 600; text-decoration: none; padding: 8px 16px; border-radius: 999px; background: var(--ink); color: var(--bg); white-space: nowrap; }
+
+/* Hero */
+.hero { padding-block: 80px 40px; }
+.pill { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; padding: 6px 12px 6px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--muted); }
+.pill b { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--glow); }
+.hero h1 {
+  margin-top: 24px; font-weight: 900;
+  font-size: clamp(40px, 7.4vw, 88px); line-height: 1.05; letter-spacing: -0.045em;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero .lede { margin-top: 24px; max-width: 38em; font-size: clamp(16px, 1.6vw, 19px); color: var(--muted); }
+.hero-top { display: grid; grid-template-columns: 1fr 340px; gap: 64px; align-items: end; }
+.hero-text { min-width: 0; }
+.portrait { margin: 0; position: relative; border-radius: 24px; overflow: hidden; border: 1px solid var(--line); background: var(--surface-2); box-shadow: 0 30px 80px -30px var(--glow); }
+.portrait img { display: block; width: 100%; height: auto; aspect-ratio: 430 / 515; object-fit: cover; }
+.portrait figcaption { position: absolute; left: 12px; right: 12px; bottom: 12px; padding: 10px 14px; border-radius: 14px; display: flex; flex-direction: column; background: rgba(11,13,14,.62); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: #eef1f0; }
+.portrait figcaption b { font-size: 15px; }
+.portrait figcaption span { font-size: 12.5px; color: #b9c2bf; }
+
+.bento { margin-top: 56px; display: grid; grid-template-columns: 2fr 1fr; gap: 12px; }
+.bento .card { padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; min-height: 160px; }
+.stat b { font-size: clamp(40px, 5vw, 56px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+.stat b small { font-size: .45em; color: var(--accent); margin-left: 2px; }
+.stat p { color: var(--muted); font-size: 14px; }
+.now { grid-row: span 2; background: linear-gradient(160deg, var(--surface-2), var(--surface)); position: relative; overflow: hidden; }
+.now::after { content: ""; position: absolute; right: -80px; bottom: -80px; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, var(--glow), transparent 70%); }
+.now h2 { font-size: clamp(24px, 2.6vw, 30px); font-weight: 700; }
+.now .who { color: var(--muted); margin-top: 6px; }
+.now ul { display: grid; gap: 10px; position: relative; z-index: 1; }
+.now li { display: flex; gap: 10px; align-items: baseline; font-size: 15px; }
+.now li::before { content: ""; flex: none; width: 6px; height: 6px; border-radius: 2px; background: var(--accent); transform: translateY(-2px); }
+.now::before { content: ""; position: absolute; left: -60px; top: -60px; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, var(--glow), transparent 70%); opacity: .7; pointer-events: none; }
+.now > * { position: relative; z-index: 1; }
+.label.live { display: inline-flex; align-items: center; gap: 8px; }
+.label.live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 0 var(--glow); }
+.gov { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.gov > div { padding: 14px 16px 16px; border-radius: 14px; background: color-mix(in srgb, var(--bg) 55%, transparent); border: 1px solid var(--line); min-width: 0; }
+.gov .label { color: var(--accent); margin-bottom: 10px; }
+.now .gov ul { gap: 8px; }
+.now .gov li { font-size: 14px; line-height: 1.5; }
+@media (prefers-reduced-motion: no-preference) {
+  .now::after { animation: orb-a 14s ease-in-out infinite alternate; }
+  .now::before { animation: orb-b 18s ease-in-out infinite alternate; }
+  .label.live::before { animation: pulse 2.4s ease-out infinite; }
+  .gov > div { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; transition: border-color .25s, transform .25s; }
+  .gov > div:nth-child(2) { animation-delay: .12s; }
+  .gov > div:nth-child(3) { animation-delay: .24s; }
+  .gov > div:hover { border-color: color-mix(in srgb, var(--accent) 45%, transparent); transform: translateY(-2px); }
+}
+@keyframes orb-a { to { transform: translate(-120px, -60px) scale(1.25); } }
+@keyframes orb-b { to { transform: translate(140px, 50px) scale(1.2); } }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 var(--glow); } 70% { box-shadow: 0 0 0 8px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+@keyframes rise { from { transform: translateY(12px); } to { transform: none; } }
+
+/* Sections */
+section { padding-block: 88px 24px; scroll-margin-top: 60px; }
+.sec-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
+.sec-head h2 { margin-top: 10px; font-size: clamp(30px, 4.4vw, 48px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.1; }
+.sec-head p { color: var(--muted); max-width: 30em; }
+
+/* Skills */
+.skills { margin-top: 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.skill { padding: 26px; display: flex; flex-direction: column; gap: 14px; transition: border-color .2s, transform .2s; }
+.skill:hover { border-color: color-mix(in srgb, var(--accent) 45%, transparent); transform: translateY(-2px); }
+.skill .ico { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--surface-2); color: var(--accent); }
+.skill h3 { font-size: 18px; font-weight: 700; }
+.skill p { color: var(--muted); font-size: 14.5px; }
+@property --ang { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+.skill.featured { position: relative; overflow: hidden; border: 1px solid transparent;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 10%, var(--surface)), var(--surface)) padding-box,
+              conic-gradient(from var(--ang), color-mix(in srgb, var(--accent) 25%, transparent), var(--accent), color-mix(in srgb, var(--accent) 25%, transparent) 40%, color-mix(in srgb, var(--accent) 25%, transparent)) border-box;
+  box-shadow: 0 24px 60px -30px var(--glow); }
+.skill.featured::after { content: ""; position: absolute; right: -60px; top: -60px; width: 180px; height: 180px; border-radius: 50%; background: radial-gradient(circle, var(--glow), transparent 70%); pointer-events: none; }
+.skill.featured > * { position: relative; z-index: 1; }
+.skill.featured .ico { background: var(--accent); color: var(--accent-ink); box-shadow: 0 0 0 6px var(--glow); }
+.skill.featured h3 { font-size: 20px; }
+.feat-tag { font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin: 0 0 -6px; }
+.feat-stats { display: flex; gap: 8px; flex-wrap: wrap; }
+.feat-stats span { display: flex; flex-direction: column; padding: 8px 12px; border-radius: 12px; background: color-mix(in srgb, var(--bg) 60%, transparent); border: 1px solid var(--line); font-size: 12px; color: var(--muted); }
+.feat-stats b { font-size: 20px; font-weight: 800; color: var(--ink); letter-spacing: -0.03em; line-height: 1.1; }
+.feat-link { margin-top: auto; font-size: 14px; font-weight: 600; color: var(--accent); text-decoration: none; }
+.feat-link:hover { text-decoration: underline; }
+@media (prefers-reduced-motion: no-preference) {
+  .skill.featured { animation: spin 6s linear infinite; }
+  .skill.featured .ico svg { animation: twinkle 2.8s ease-in-out infinite; }
+  .skill.featured::after { animation: orb-a 10s ease-in-out infinite alternate; }
+}
+@keyframes spin { to { --ang: 360deg; } }
+@keyframes twinkle { 0%, 100% { transform: scale(1) rotate(0); } 50% { transform: scale(1.18) rotate(12deg); } }
+
+/* Timeline */
+.timeline { margin-top: 40px; position: relative; display: grid; gap: 12px; }
+.job { display: grid; grid-template-columns: 200px 1fr; gap: 0; overflow: hidden; }
+.job .when { padding: 26px; border-right: 1px solid var(--line); background: var(--surface-2); font-family: var(--mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; display: flex; flex-direction: column; gap: 8px; }
+.job .when .dur { color: var(--ink); font-family: var(--sans); font-weight: 600; font-size: 15px; }
+.badge { align-self: flex-start; font-family: var(--sans); font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); }
+.job-body { padding: 26px 28px; min-width: 0; }
+.job-top { display: flex; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; align-items: baseline; }
+.job h3 { font-size: 21px; font-weight: 700; }
+.job .role { color: var(--accent); font-size: 14px; font-weight: 500; }
+.job .summary { margin-top: 10px; color: var(--muted); }
+.job ul { margin-top: 14px; display: grid; gap: 6px; }
+.job li { padding-left: 18px; position: relative; font-size: 15px; }
+.job li::before { content: ""; position: absolute; left: 0; top: .72em; width: 8px; height: 1px; background: var(--muted); }
+.chips { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px; }
+.chips span { font-size: 12.5px; padding: 3px 10px; border-radius: 999px; background: var(--surface-2); color: var(--muted); border: 1px solid var(--line); }
+.kpi { margin-top: 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.kpi div { padding: 16px 18px; border-radius: 14px; background: var(--surface-2); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; }
+.kpi b { font-size: clamp(26px, 3vw, 34px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.kpi b small { font-size: .5em; color: var(--accent); margin-left: 2px; }
+.kpi span { font-size: 13px; color: var(--muted); }
+.kpi-note { margin-top: 8px; font-size: 12px; color: var(--muted); }
+.months-head { margin-top: 22px; display: flex; justify-content: space-between; align-items: center; gap: 8px 16px; flex-wrap: wrap; }
+.months-title { color: var(--accent); }
+.legend { display: flex; gap: 14px; font-size: 12.5px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend span::before { content: ""; width: 8px; height: 8px; border-radius: 2px; }
+.legend .k-biz::before { background: var(--accent); }
+.legend .k-work::before { background: var(--muted); }
+.job ol.months { margin: 10px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+@media (max-width: 1200px) { .job ol.months { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .job ol.months { grid-template-columns: 1fr; } }
+.job .months li { padding: 14px 16px; border-radius: 14px; background: var(--surface-2); border: 1px solid var(--line); min-width: 0; display: grid; grid-row: span 3; grid-template-rows: subgrid; row-gap: 0; }
+.job .months li::before { display: none; }
+.months b { font-family: var(--mono); font-size: 13px; color: var(--accent); font-weight: 500; padding-bottom: 6px; }
+.months .biz, .months .work { display: flex; flex-direction: column; gap: 4px; }
+.months .biz { padding-bottom: 10px; }
+.months .biz span { font-size: 13px; color: var(--ink); line-height: 1.5; padding-left: 12px; position: relative; }
+.months .biz span::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; border-radius: 2px; background: var(--accent); }
+.months .work { padding-top: 10px; border-top: 1px dashed var(--line); }
+.months .work span { font-size: 13px; color: var(--muted); line-height: 1.5; padding-left: 12px; position: relative; }
+.months .work span::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; border-radius: 2px; background: var(--muted); opacity: .6; }
+.areas { margin-top: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.area { padding: 18px 20px; border-radius: 14px; border: 1px solid var(--line); min-width: 0; }
+.area h4 { margin: 6px 0 0; font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
+.area .label { color: var(--accent); font-size: 11.5px; }
+.job .area ul { margin-top: 10px; }
+.job .area li { font-size: 14px; color: var(--muted); }
+details.older { margin-top: 12px; }
+details.older summary { cursor: pointer; list-style: none; padding: 16px 24px; border: 1px dashed var(--line); border-radius: 16px; color: var(--muted); font-size: 14px; text-align: center; }
+details.older summary::-webkit-details-marker { display: none; }
+details.older[open] summary { margin-bottom: 12px; }
+details.older .timeline { margin-top: 0; }
+
+/* Projects */
+.filters { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 8px; }
+.filters button { font: inherit; font-size: 14px; cursor: pointer; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--muted); transition: all .15s; }
+.filters button:hover { color: var(--ink); }
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.filters button .n { font-family: var(--mono); font-size: 12px; opacity: .6; margin-left: 4px; }
+.projects { margin-top: 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.proj { padding: 22px; display: flex; flex-direction: column; gap: 10px; min-width: 0; transition: border-color .2s; }
+.proj:hover { border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+.proj .meta { display: flex; justify-content: space-between; gap: 8px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.proj .meta .tag { color: var(--accent); }
+.proj h3 { font-size: 17px; font-weight: 600; line-height: 1.4; letter-spacing: -0.01em; }
+.proj .org { color: var(--muted); font-size: 14px; margin-top: auto; }
+.proj .role { font-size: 13px; padding-top: 10px; border-top: 1px solid var(--line); }
+
+/* AX */
+.ax-main h3 { font-size: 24px; font-weight: 700; }
+.ax-main > p { margin-top: 10px; color: var(--muted); max-width: 52em; }
+.flow { margin-top: 28px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; counter-reset: s; }
+.flow li { counter-increment: s; padding: 16px; border-radius: 14px; background: var(--surface-2); border: 1px solid var(--line); position: relative; display: flex; flex-direction: column; gap: 6px; }
+.flow li::before { content: counter(s, decimal-leading-zero); font-family: var(--mono); font-size: 12px; color: var(--accent); }
+.flow li b { font-size: 15px; font-weight: 600; }
+.flow li small { color: var(--muted); font-size: 12.5px; line-height: 1.5; }
+.flow li[data-agent] { padding-top: 12px; }
+.pa-char { order: -1; --body: #a1a1aa; --eye: #1c1917; width: 52px; height: 52px; display: block; margin: 0 0 2px -4px; }
+.pa-char svg { width: 100%; height: 100%; overflow: visible; }
+.pa-char.a-research { --body: #f25c3c; } .pa-char.a-direction { --body: #8b5cf6; } .pa-char.a-outline { --body: #14b8a6; }
+.pa-char.a-design { --body: #ec4899; } .pa-char.a-build { --body: #3b82f6; } .pa-char.a-verify { --body: #22c55e; }
+.pa-char .c-body { fill: var(--body); }
+.pa-char .c-eyes { fill: var(--eye); }
+.pa-char .c-stroke { fill: none; stroke: var(--eye); stroke-width: 1.6; stroke-linecap: round; }
+.pa-char .c-lens { fill: rgba(255,255,255,.6); stroke: #e0a530; stroke-width: 1.6; }
+.pa-char .c-handle { fill: none; stroke: #c2410c; stroke-width: 2.4; stroke-linecap: round; }
+.pa-char .c-mono { fill: none; stroke: var(--eye); stroke-width: 1.1; }
+.pa-char .c-chain { fill: none; stroke: var(--eye); stroke-width: .7; }
+.pa-char .c-pole { fill: none; stroke: var(--muted); stroke-width: 1.4; stroke-linecap: round; }
+.pa-char .c-flag { fill: #f43f5e; }
+.pa-char .c-beret { fill: #1f2937; }
+.pa-char .c-pencil { fill: #facc15; } .pa-char .c-eraser { fill: #fb7185; }
+.pa-char .c-hat { fill: #facc15; } .pa-char .c-brim { fill: none; stroke: #facc15; stroke-width: 2.4; stroke-linecap: round; }
+.pa-char .c-ridge { fill: none; stroke: #eab308; stroke-width: 1.6; stroke-linecap: round; }
+.pa-char .c-ok { fill: #16a34a; stroke: var(--surface-2); stroke-width: 1.6; }
+.pa-char .c-okm { fill: none; stroke: #fff; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.pa-char .c-shadow { fill: var(--ink); opacity: .12; }
+@media (prefers-reduced-motion: no-preference) {
+  .pa-char .c-float { transform-box: fill-box; transform-origin: 50% 100%; animation: pa-hop 6s ease-in-out infinite; animation-delay: calc(var(--i) * 1s); }
+  .pa-char .c-shadow { transform-box: fill-box; transform-origin: center; animation: pa-shadow 6s ease-in-out infinite; animation-delay: calc(var(--i) * 1s); }
+  .pa-char .c-eyes { transform-box: fill-box; transform-origin: center; animation: pa-blink 4s infinite; animation-delay: calc(var(--i) * .7s); }
+  .flow li[data-agent] { animation: pa-glow 6s ease-in-out infinite; animation-delay: calc(var(--i) * 1s); }
+}
+@keyframes pa-hop { 0%, 18%, 100% { transform: none; } 6% { transform: translateY(-5px) scale(1.06, .96); } 11% { transform: translateY(0) scale(1.04, .97); } }
+@keyframes pa-shadow { 0%, 18%, 100% { transform: none; opacity: .12; } 6% { transform: scale(.75); opacity: .06; } }
+@keyframes pa-blink { 0%, 93%, 100% { transform: scaleY(1); } 96% { transform: scaleY(.1); } }
+@keyframes pa-glow { 0%, 18%, 100% { border-color: var(--line); } 6% { border-color: color-mix(in srgb, var(--accent) 60%, transparent); } }
+.flow li:not(:last-child)::after { content: ""; position: absolute; right: -8px; top: 50%; width: 8px; height: 1px; background: var(--accent); }
+.sub-head { margin-top: 56px; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+.sub-row { display: flex; justify-content: space-between; align-items: end; gap: 12px 24px; flex-wrap: wrap; }
+.sub-row .filters { margin-top: 0; }
+.ax-time { margin-top: 20px; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(6, 1fr); border-top: 1px solid var(--line); }
+.ax-time li { padding: 22px 18px 0 0; position: relative; min-width: 0; }
+.ax-time li::before { content: ""; position: absolute; top: -5px; left: 0; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--glow); }
+.ax-time .when { font-family: var(--mono); font-size: 12px; color: var(--accent); }
+.ax-time b { display: block; margin-top: 4px; font-size: 16px; }
+.ax-time p { margin-top: 6px; font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+.ax-main { margin-top: 20px; padding: 32px; }
+.agents { margin-top: 12px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.agent { padding: 22px; display: flex; flex-direction: column; gap: 8px; min-width: 0; transition: border-color .2s; }
+.agent:hover { border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+.agent .meta { font-family: var(--mono); font-size: 12px; color: var(--accent); }
+.agent h4 { margin: 0; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.35; }
+.agent p { color: var(--muted); font-size: 14px; }
+.agent .stage { margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink); }
+.consult { margin-top: 20px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.consult .card { padding: 22px; display: flex; flex-direction: column; gap: 6px; }
+.consult h4 { margin: 0; font-size: 17px; font-weight: 600; }
+.consult p:not(.label) { color: var(--muted); font-size: 14px; }
+
+/* 대분류 접기·펼치기 */
+.sec-toggle { white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px 7px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--muted); font: inherit; font-size: 13px; cursor: pointer; align-self: center; }
+.sec-toggle:hover { color: var(--ink); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+.sec-toggle svg { transition: transform .25s; }
+section.collapsed .sec-toggle svg { transform: rotate(180deg); }
+section.collapsed .sec-body { display: none; }
+section.collapsed { padding-bottom: 0; }
+section.collapsed .sec-head { padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+.sec-tools { display: inline-flex; gap: 6px; }
+@media (prefers-reduced-motion: no-preference) { .sec-body { animation: sec-open .35s ease-out; } }
+@keyframes sec-open { from { transform: translateY(-6px); } to { transform: none; } }
+
+/* 내 캐릭터(연락처) */
+.me { position: relative; display: inline-flex; flex-direction: column; align-items: center; margin-bottom: 8px; }
+.me-char { display: block; width: 112px; height: 124px; }
+.me-char svg { width: 100%; height: 100%; overflow: visible; }
+.me-char .m-hair { fill: #1f2937; }
+.me-char .m-eye { fill: #1c1917; }
+.me-char .m-glass { fill: rgba(255,255,255,.35); stroke: #b8925a; stroke-width: 1.1; }
+.me-char .m-smile { fill: none; stroke: #1c1917; stroke-width: 1.2; stroke-linecap: round; }
+.me-char .m-cheek { fill: #fb7185; opacity: .35; }
+.me-char .m-hand { fill: var(--accent); stroke: color-mix(in srgb, var(--ink) 25%, transparent); stroke-width: .6; }
+.me-char .m-shadow { fill: var(--ink); opacity: .12; }
+.me-bubble { order: -2; position: relative; font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px; background: var(--ink); color: var(--bg); margin-bottom: 6px; }
+.me-bubble::after { content: ""; position: absolute; left: 50%; bottom: -5px; width: 10px; height: 10px; background: var(--ink); transform: translateX(-50%) rotate(45deg); border-radius: 2px; }
+@media (prefers-reduced-motion: no-preference) {
+  .me-char .m-float { transform-box: fill-box; transform-origin: 50% 100%; animation: me-float 2.8s ease-in-out infinite; }
+  .me-char .m-shadow { transform-box: fill-box; transform-origin: center; animation: me-shadow 2.8s ease-in-out infinite; }
+  .me-char .m-eyes { transform-box: fill-box; transform-origin: center; animation: pa-blink 4.2s infinite; }
+  .me-char .m-wave { transform-box: fill-box; transform-origin: 20% 90%; animation: me-wave 2.8s ease-in-out infinite; }
+  .me-bubble { animation: me-bubble 2.8s ease-in-out infinite; }
+}
+@keyframes me-float { 50% { transform: translateY(-4px) scale(1.02, .98); } }
+@keyframes me-shadow { 50% { transform: scale(.8); opacity: .06; } }
+@keyframes me-wave { 0%, 60%, 100% { transform: rotate(0); } 10%, 30% { transform: rotate(-22deg); } 20%, 40% { transform: rotate(10deg); } }
+@keyframes me-bubble { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+
+/* 인스타그램 */
+.contact .more { margin-top: 28px; font-size: 14px; }
+.insta { position: relative; margin-top: 10px; display: inline-flex; align-items: center; gap: 12px; padding: 8px 18px 8px 8px; border-radius: 999px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); text-decoration: none; transition: border-color .2s, transform .2s; }
+.insta:hover { border-color: color-mix(in srgb, #e1306c 55%, transparent); transform: translateY(-2px); }
+.insta-ico { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%); }
+.insta-txt { display: flex; flex-direction: column; text-align: left; line-height: 1.3; }
+.insta-txt b { font-size: 14px; }
+.insta-txt span { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.insta-go { color: var(--muted); transition: transform .2s; }
+.insta:hover .insta-go { transform: translateX(3px); color: var(--ink); }
+
+/* About + profile */
+.about { margin-top: 40px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 12px; }
+.quote { padding: 36px; display: flex; flex-direction: column; gap: 20px; }
+.quote blockquote { margin: 0; font-size: clamp(24px, 3vw, 34px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.3; }
+.quote blockquote span { color: var(--accent); }
+.quote p { color: var(--muted); }
+.profile { display: grid; gap: 12px; }
+.profile .card { padding: 22px 24px; }
+.profile dl { margin: 12px 0 0; display: grid; gap: 10px; }
+.profile .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.profile dt { font-weight: 500; }
+.profile dd { margin: 0; color: var(--muted); font-size: 14px; }
+
+/* Contact */
+.contact { margin-block: 88px 64px; padding: clamp(32px, 6vw, 64px); text-align: center; background: linear-gradient(160deg, var(--surface-2), var(--surface)); position: relative; overflow: hidden; }
+.contact::before { content: ""; position: absolute; inset: auto 0 -60% 0; height: 100%; background: radial-gradient(50% 60% at 50% 100%, var(--glow), transparent); pointer-events: none; }
+.contact h2 { position: relative; font-size: clamp(30px, 5vw, 56px); font-weight: 900; letter-spacing: -0.04em; line-height: 1.1; }
+.contact p { position: relative; margin-top: 14px; color: var(--muted); }
+.contact-lede { font-size: clamp(16px, 1.8vw, 19px); max-width: 36em; margin-inline: auto; }
+.offer { position: relative; margin: 36px auto 32px; max-width: 1100px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; text-align: left; }
+.offer > div { padding: 22px; border-radius: 16px; background: var(--bg); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.offer .label { color: var(--accent); margin: 0; }
+.offer h3 { font-size: 17px; font-weight: 700; }
+.contact .offer p:not(.label) { margin: 0; font-size: 14px; color: var(--muted); }
+@media (max-width: 1200px) { .offer { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .offer { grid-template-columns: 1fr; } }
+.contact .phone { font-size: clamp(17px, 2vw, 20px); color: var(--ink); }
+.contact .phone span { font-family: var(--mono); font-weight: 500; user-select: all; font-variant-numeric: tabular-nums; }
+.mail { position: relative; margin-top: 28px; display: inline-flex; gap: 6px; padding: 6px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); flex-wrap: wrap; justify-content: center; }
+.mail code { font-family: var(--mono); font-size: 16px; padding: 8px 14px; user-select: all; }
+.mail button { font: inherit; font-size: 14px; font-weight: 600; padding: 8px 18px; cursor: pointer; background: var(--accent); color: var(--accent-ink); border: 0; border-radius: 999px; }
+footer { padding-block: 0 48px; color: var(--muted); font-size: 13px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 1200px) {
+  .projects { grid-template-columns: repeat(3, 1fr); }
+  .skills, .areas { grid-template-columns: repeat(2, 1fr); }
+  .agents { grid-template-columns: repeat(3, 1fr); }
+  .ax-time { grid-template-columns: repeat(3, 1fr); row-gap: 28px; }
+  .consult { grid-template-columns: repeat(2, 1fr); }
+  .hero-top { grid-template-columns: 1fr 300px; gap: 48px; }
+}
+@media (max-width: 960px) {
+  .bento { grid-template-columns: 1fr 1fr; }
+  .now { grid-column: 1 / -1; grid-row: auto; }
+  .skills, .projects, .agents { grid-template-columns: repeat(2, 1fr); }
+  .flow { grid-template-columns: repeat(3, 1fr); }
+  .flow li:nth-child(3)::after { display: none; }
+  .about { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .links { display: none; }
+  .hero { padding-block: 48px 24px; }
+  .hero-top { grid-template-columns: 1fr; gap: 32px; }
+  .portrait { order: -1; width: 200px; }
+  .bento, .skills, .projects, .agents, .consult { grid-template-columns: 1fr; }
+  .ax-time { grid-template-columns: 1fr; border-top: 0; border-left: 1px solid var(--line); row-gap: 20px; }
+  .ax-time li { padding: 0 0 0 20px; }
+  .ax-time li::before { top: 4px; left: -5px; }
+  .ax-main { padding: 24px; }
+  .now { grid-column: auto; grid-row: auto; }
+  .flow { grid-template-columns: 1fr 1fr; }
+  .flow li::after { display: none; }
+  .job { grid-template-columns: 1fr; }
+  .areas { grid-template-columns: 1fr; }
+  .kpi { grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+  .kpi div { padding: 12px; }
+  .job .when { border-right: 0; border-bottom: 1px solid var(--line); flex-direction: row; flex-wrap: wrap; align-items: center; padding: 16px 22px; }
+  .job-body { padding: 22px; }
+  section { padding-block: 64px 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+<nav class="top" aria-label="섹션 이동">
+  <div class="wrap">
+    <span class="brand">유경표<small>고객의 문제에서 시작해 수행의 끝까지 책임지는 사람</small></span>
+    <div class="links">
+      <a href="#skills">역량</a><a href="#career">경력</a><a href="#projects">사업</a><a href="#ax">AX</a><a href="#about">소개</a>
+      <button type="button" class="sec-toggle" id="toggle-all">모두 접기</button>
+    </div>
+    <a class="cta" href="#contact">연락하기</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="hero-text">
+        <span class="pill"><b aria-hidden="true"></b>공공사업 총괄 · AX 리더 포지션 검토 중</span>
+        <h1>변하지 않는 원칙,<br><em>가장 앞선 AI 실행력.</em></h1>
+        <p class="lede">영업에서 제안, 수행, 사후관리까지 고객의 문제를 해결하는 모든 과정을 직접 책임집니다. 최신 AI를 업무 깊숙이 활용해 더 빠르고 정확하게 일하되, 고객과의 신뢰와 사업의 본질은 흔들림 없이 지킵니다.</p>
+      </div>
+      <figure class="portrait">
+        <img src="photo.jpg" alt="유경표 프로필 사진" width="430" height="515">
+        <figcaption><b>유경표</b><span>공공 SI 영업 · 제안 총괄 · AX까지</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="bento">
+      <div class="card now">
+        <div>
+          <p class="label live">Now</p>
+          <h2 style="margin-top:12px">주식회사 와일리</h2>
+          <p class="who">컨버젼스1본부 본부장 · AX혁신센터장</p>
+        </div>
+        <div class="gov">
+          <div><p class="label">사업 총괄</p><ul>
+            <li>본부 영업·제안·수행 의사결정과 수주 관리</li>
+            <li>전략영업 역할 정의, 본부 업무(Task) 체계화</li>
+            <li>월별 인력 배분과 사업 현황 관리</li>
+          </ul></div>
+          <div><p class="label">AX 거버넌스</p><ul>
+            <li>전사 AX 전략 수립, AX혁신센터 운영</li>
+            <li>AX 전환 SOP·AI 활용 가이드로 업무 표준화</li>
+            <li>다수의 사내 AI 강연으로 전사 확산</li>
+          </ul></div>
+          <div><p class="label">프로덕트 · Agent</p><ul>
+            <li>SmartCue(AI-Product) 총괄 리딩, 2026.06 저작권 등록</li>
+            <li>영업·제안·운영 다수의 Agent 구축</li>
+            <li>파트너십·인증 검토 등 사업 기반 확보</li>
+          </ul></div>
+        </div>
+      </div>
+      <div class="card stat"><b>25<small>년+</small></b><p>IT 기술영업·사업 경력</p></div>
+      <div class="card stat"><b>13<small>년</small></b><p>임원·본부장 (2013~)</p></div>    </div>
+  </div>
+</header>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="label">Core Competencies</p><h2>핵심 역량</h2></div>
+      <p>영업부터 제안·발표·수행까지 끝까지 책임집니다.</p>
+      <button type="button" class="sec-toggle" aria-expanded="true" aria-controls="skills-body"><span>접기</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg></button>
+    </div>
+    <div class="sec-body" id="skills-body">
+    <div class="skills">
+      <div class="card skill">
+        <span class="ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></span>
+        <h3>공공 SI 기술영업</h3>
+        <p>기관 수요 파악, 사업기획, 예산 검토 같은 프리세일즈 단계부터 제안과 수행까지 한 흐름으로 연결합니다.</p>
+      </div>
+      <div class="card skill">
+        <span class="ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span>
+        <h3>제안 총괄 디렉션</h3>
+        <p>핵심 과제와 평가 관점을 먼저 정리하고, 전략·스토리라인·시각자료·발표 대본이 같은 방향을 가리키게 조정합니다.</p>
+      </div>
+      <div class="card skill">
+        <span class="ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-4-6"/></svg></span>
+        <h3>사업 조직 리더십</h3>
+        <p>네 개 회사에서 본부장·부사장급으로 사업조직을 이끌었고, 개별 사업에서는 PM·PL로 직접 수행을 챙겼습니다.</p>
+      </div>
+      <div class="card skill featured">
+        <span class="ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/></svg></span>
+        <p class="feat-tag">Core · Now</p>
+        <h3>AX와 AI Agent</h3>
+        <p>AX혁신센터장으로 전사 AI 전환을 이끌고, 제안·영업·운영 업무용 Agent를 직접 기획하고 구축을 디렉션했습니다.</p>
+        <div class="feat-stats"><span><b>19</b>에이전트·AI 서비스</span><span><b>SOP</b>전사 AX 표준</span></div>
+        <a class="feat-link" href="#ax">AX 활동 보기 →</a>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section id="career">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="label">Experience</p><h2>경력</h2></div>
+      <p>최근 경력부터 적었습니다. 2006년 이전 경력은 아래에서 펼쳐 볼 수 있습니다.</p>
+      <button type="button" class="sec-toggle" aria-expanded="true" aria-controls="career-body"><span>접기</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg></button>
+    </div>
+    <div class="sec-body" id="career-body">
+    <div class="timeline">
+
+      <article class="card job">
+        <div class="when"><span class="badge">재직 중</span>2022.12 – 현재<span class="dur">4년차</span></div>
+        <div class="job-body">
+          <div class="job-top"><h3>주식회사 와일리</h3><span class="role">컨버젼스1본부 임원·본부장 / AX혁신센터장</span></div>
+          <p class="summary">본부 영업과 제안을 총괄하면서, AX혁신센터장으로 전사 AI 전환과 사내 프로덕트를 함께 이끌고 있습니다.</p>
+
+          <div class="months-head"><p class="label months-title">2026 월별 하이라이트</p><p class="legend"><span class="k-biz">사업</span><span class="k-work">업무</span></p></div>
+          <ol class="months">
+            <li><b>1월</b><div class="biz"><span>인스파이어 모바일앱 제안 발표</span><span>국립보건연구원·KAIT·강남보건소 재계약</span></div><div class="work"><span>월별 현황 대시보드 구축</span></div></li>
+            <li><b>2월</b><div class="biz"><span>한국사능력검정 시스템 고도화 계약</span><span>법제처 국가법령정보센터 견적</span></div><div class="work"><span>현황 분석 에이전트</span></div></li>
+            <li><b>3월</b><div class="biz"><span>아이엠뱅크 디자인시스템 제안·발표</span></div><div class="work"><span>AX혁신센터 2026 계획 발표</span><span>AX혁신센터 홈페이지 구축 리딩</span><span>SysOps Agent 보고</span></div></li>
+            <li><b>4월</b><div class="biz"><span>NIA 공공 웹·앱 UI/UX 발표</span></div><div class="work"><span>전략영업 역할 정의</span><span>AI 챔피언 대회 마음AI 구현 제안</span></div></li>
+            <li><b>5월</b><div class="biz"><span>이동의즐거움 데이터분석 시스템 수주</span><span>NIA 대표홈페이지 개편 컨설팅</span></div><div class="work"><span>SmartCue(AI-Product) 총괄 리딩</span></div></li>
+            <li><b>6월</b><div class="biz"><span>주택금융공사 의미기반검색 컨설팅 및 계약 추진</span></div><div class="work"><span>SmartCue 저작권 등록</span><span>다수의 사내 AI 강연</span></div></li>
+            <li><b>7월</b><div class="biz"><span>한림원 의사과학자 홈페이지 계약</span></div><div class="work"><span>AX 전환 SOP 완성</span><span>전사 보고 영상 ‘AX 대항해 시즌1’</span></div></li>
+            <li><b>8월</b><div class="biz"><span>국립재활원 유지보수 계약</span></div><div class="work"><span>AI-Ready 웹 전환 보고서</span><span>컨버젼스본부 업무 체계화</span></div></li>
+            <li><b>9월</b><div class="biz"><span>KAIT 신용정보 공동관리 제안·발표</span></div><div class="work"><span>Web for AI 가이드북</span><span>폐쇄망 에이전트 보고</span></div></li>
+            <li><b>10월</b><div class="biz"><span>이동의즐거움 모빌리티 데이터 플랫폼 계약</span><span>KAIT 신용정보 공동관리 수주</span></div><div class="work"><span>2027년 사업계획 수립</span></div></li>
+          </ol>
+
+          <div class="areas">
+            <div class="area">
+              <p class="label">01 · 사업 수주</p>
+              <h4>공공·금융 사업 수주와 재계약</h4>
+              <ul>
+                <li>국사편찬위원회 한국사능력검정시험 시스템 고도화</li>
+                <li>이동의즐거움 데이터분석 통계 시스템 구축</li>
+                <li>한국주택금융공사 의미기반검색 컨설팅 및 계약 추진, 이동의즐거움 모빌리티 데이터 분석 플랫폼</li>
+                <li>KAIT 신용정보 공동관리 개선, 한림원 의사과학자 공모 홈페이지</li>
+                <li>국립보건연구원·KAIT·강남보건소·국립재활원 유지보수 재계약 등 다수의 신규 고객 발굴, 수주와 영업 활동</li>
+              </ul>
+            </div>
+            <div class="area">
+              <p class="label">02 · 제안·컨설팅</p>
+              <h4>수주 사업 제안 전략과 발표 총괄</h4>
+              <ul>
+                <li>국사편찬위원회 한국사능력검정시험 시스템 고도화: 1월 제안 제출, 2월 계약</li>
+                <li>KAIT 방송통신 신용정보 공동관리 개선: 8월 제안 착수, 10월 발표·수주</li>
+                <li>이동의즐거움 모빌리티 데이터 분석 플랫폼: 8월 제안 킥오프, 10월 계약</li>
+                <li>이동의즐거움 데이터분석 통계 시스템: 영업부터 제안까지 직접 수행해 수주</li>
+                <li>한국주택금융공사 의미기반검색: 컨설팅 및 계약 추진, 비대면채널 컨설팅·통합테스트까지 수행 연계</li>
+                <li>대한민국의학한림원 의사과학자 공모 홈페이지: 수의계약 제안, 시안 검토</li>
+                <li>국립보건연구원·국립재활원·KAIT·강남보건소: 유지보수 재계약 제안 등 다수의 프로젝트 디렉팅</li>
+              </ul>
+            </div>
+            <div class="area">
+              <p class="label">03 · 전사 AX</p>
+              <h4>AX혁신센터 운영</h4>
+              <ul>
+                <li>AX혁신센터 계획 수립·발표, AX Offering Pack</li>
+                <li>AX혁신센터 홈페이지(Wylie AX) 구축 리딩 — 기획 방향·콘텐츠·디자인 총괄</li>
+                <li>AX 전환 워크프로세스 표준화 가이드(SOP) 완성</li>
+                <li>AI-Ready 웹 전환 보고서, Web for AI 가이드북·구축 방법론</li>
+                <li>전사 보고 영상 ‘AX 대항해 시즌1’, 다수의 사내 AI 강연</li>
+                <li>폐쇄망 에이전트 경영진 보고, 사내 AI 경진대회 기획</li>
+              </ul>
+            </div>
+            <div class="area">
+              <p class="label">04 · AI Agent</p>
+              <h4>제안·운영 업무 자동화</h4>
+              <ul>
+                <li>제안발표 Multi-Agent, RFI 대응 Agent, 제안서 에이전트 구축 디렉션</li>
+                <li>AI 기반 RFP 대응 체계 고도화 계획</li>
+                <li>SysOps Agent, 운영 매뉴얼 Wylie OpsPilot</li>
+                <li>영업·인력 현황 분석 에이전트와 월별 대시보드</li>
+                <li>주택연금 AI 프로토타입</li>
+              </ul>
+            </div>
+            <div class="area">
+              <p class="label">05 · 프로덕트</p>
+              <h4>사내 프로덕트 PO</h4>
+              <ul>
+                <li>SmartCue(AI-Product) 총괄 리딩: 기획·브랜딩·사이트 구축, 2026.06 저작권 등록</li>
+                <li>사내 디자인시스템 워크플로우 정립</li>
+                <li>메뉴판 읽기 앱, 개인비서 Hermes, 지식화 앱</li>
+                <li>마음AI, 회사문화 플랫폼, 펫네임AI</li>
+              </ul>
+            </div>
+            <div class="area">
+              <p class="label">06 · 조직 운영</p>
+              <h4>본부 체계와 사업 계획</h4>
+              <ul>
+                <li>전략영업 역할 정의, 컨버젼스본부 업무(Task) 체계화</li>
+                <li>직급 체계·월별 인력 배분, 화면정의서 표준화</li>
+                <li>CMS 호환인증 검토, 엘라스틱서치 파트너사 협약 추진</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="chips" aria-label="주요 고객"><span>국사편찬위원회</span><span>한국주택금융공사</span><span>KAIT</span><span>NIA</span><span>국립보건연구원</span><span>국립재활원</span><span>한림원</span><span>이동의즐거움</span><span>신용회복위원회</span></div>
+        </div>
+      </article>
+
+      <article class="card job">
+        <div class="when">2020.01 – 2022.12<span class="dur">3년</span></div>
+        <div class="job-body">
+          <div class="job-top"><h3>㈜미디어코어시스템즈</h3><span class="role">ICT사업본부 부사장·본부장</span></div>
+          <p class="summary">공공 SI 사업의 영업 대표로 제안서 작성, 발표, PM까지 직접 수행했습니다.</p>
+          <ul>
+            <li>에너지사이버박물관 구축 제안·발표·PM, 메타버스 요소 추가 제안</li>
+            <li>경기도시장상권진흥원 운영·유지보수, 귀농귀촌종합지원센터 운영</li>
+            <li>보조기기열림플랫폼 구축, 경기도 공공건설지원센터 구축</li>
+            <li>서울 중구 어르신 건강데이터 관리시스템 PM 등 다수의 프로젝트 영업, 제안 디렉팅, 사업 수행 및 관리</li>
+          </ul>
+          <div class="chips" aria-label="주요 고객"><span>경기도시장상권진흥원</span><span>국립재활원</span><span>환경공단</span><span>에너지정보문화재단</span><span>경기주택도시공사</span><span>경기교통공사</span></div>
+        </div>
+      </article>
+
+      <article class="card job">
+        <div class="when">2016.12 – 2019.12<span class="dur">3년 1개월</span></div>
+        <div class="job-body">
+          <div class="job-top"><h3>아로정보기술</h3><span class="role">서비스통합본부 임원·본부장</span></div>
+          <p class="summary">관광·지역 서비스와 공공 웹·모바일 분야에서 사업을 수주하고, 신규 서비스를 기획·런칭했습니다.</p>
+          <ul>
+            <li>한국관광공사 두루누비 사업 수주 (2019)</li>
+            <li>한국농어촌공사 6차산업 스마트콘텐츠 제작 사업 수주 (2018, 2019)</li>
+            <li>성북구 스마트관광안내판, 서울 중구 스마트관광·대한제국길 도보관광안내시스템 수주</li>
+            <li>TBN 교통방송 앱, 서울주택도시공사 홈페이지 빌드업 수주 및 VOC 사업 영업 리딩</li>
+            <li>모바일 간편결제 서비스 런칭, 컨시어지 서비스 Hue 기획 등 다수의 프로젝트 영업, 제안 디렉팅, 사업 수행 및 관리</li>
+          </ul>
+          <div class="chips" aria-label="주요 고객"><span>한국관광공사</span><span>한국농어촌공사</span><span>서울주택도시공사</span><span>TBN 교통방송</span><span>서울 중구</span><span>성북구</span></div>
+        </div>
+      </article>
+
+      <article class="card job">
+        <div class="when">2013.03 – 2016.08<span class="dur">3년 6개월</span></div>
+        <div class="job-body">
+          <div class="job-top"><h3>부린</h3><span class="role">영업 임원·본부장</span></div>
+          <p class="summary">공공데이터 개방 흐름에 맞춰 사업을 발굴하고, 기획부터 수주까지 맡았습니다.</p>
+          <ul>
+            <li>수도권매립지관리공사 폐기물 3.0 사업 영업·기획·수주</li>
+            <li>전라북도 공공데이터 포털 3.0 사업 영업·기획·수주 등 다수의 프로젝트 영업, 제안 디렉팅, 사업 수행 및 관리</li>
+          </ul>
+          <div class="chips" aria-label="주요 고객"><span>수도권매립지관리공사</span><span>전라북도</span><span>서울시</span><span>국민안전처</span><span>KTH</span></div>
+        </div>
+      </article>
+
+      <article class="card job">
+        <div class="when">2007.06 – 2013.03<span class="dur">5년 10개월</span></div>
+        <div class="job-body">
+          <div class="job-top"><h3>선도소프트</h3><span class="role">U-GPS/GIS사업본부 차장 (수석연구원)</span></div>
+          <p class="summary">서울시와 농어촌 분야 공간정보 사업의 영업 대표로 예산기획과 기술영업을 맡았습니다.</p>
+          <ul>
+            <li><b>서울특별시 영업대표</b> — 서울시 통합지리정보시스템(SDW), 서울시 GIS포털</li>
+            <li><b>한국농어촌공사 영업대표</b> — RIMS, 지하수포털, 물관리시스템, 현장조사 시스템</li>
+            <li><b>국립농산물품질관리원 영업대표</b> — 스마트폰 현장조사, 중금속 지리정보시스템 등 다수의 프로젝트 영업, 제안 디렉팅, 사업 수행 및 관리</li>
+          </ul>
+          <div class="chips" aria-label="주요 고객"><span>서울시</span><span>한국농어촌공사</span><span>농어촌연구원</span><span>농산물품질관리원</span><span>한국정보화진흥원</span></div>
+        </div>
+      </article>
+    </div>
+
+    <details class="older">
+      <summary>2000 – 2007 초기 경력 3건 펼치기</summary>
+      <div class="timeline">
+        <article class="card job">
+          <div class="when">2006.09 – 2007.06<span class="dur">10개월</span></div>
+          <div class="job-body">
+            <div class="job-top"><h3>광주광역정보센터</h3><span class="role">기술영업 대리 (주임연구원)</span></div>
+            <p class="summary">지자체·공공기관 사업의 영업, 기획, 사업제안, PT를 맡아 다수 사업을 수주했습니다.</p>
+            <ul>
+              <li>광주디자인센터 통합정보시스템 구축, 제88회 전국체육대회 홈페이지 개편 수주</li>
+              <li>전라북도 F-tour, 전라북도 농업기술원, 함평군청, 환경시설관리공단 사업 수주 등 다수의 프로젝트 영업, 제안 디렉팅, 사업 수행 및 관리</li>
+            </ul>
+          </div>
+        </article>
+        <article class="card job">
+          <div class="when">2001.01 – 2005.12<span class="dur">5년</span></div>
+          <div class="job-body">
+            <div class="job-top"><h3>투앤씨</h3><span class="role">대표 (경영 임원)</span></div>
+            <p class="summary">패션·커머스 분야 웹 사업을 경영하며 기획, PM, 영업을 함께 했습니다.</p>
+            <ul>
+              <li>사이버피팅 솔루션 LAVATA 개발, 사이버피팅 쇼핑몰 구축·영업</li>
+              <li>패션 브랜드 홈페이지·쇼핑몰 구축과 유지보수, 온라인 쇼핑몰 벤더 운영</li>
+              <li>쇼핑몰 빌더 개발, 세계임산물무역정보 DB 구축, 포털 CP 운영 등 다수의 프로젝트 영업, 제안 디렉팅, 사업 수행 및 관리</li>
+            </ul>
+          </div>
+        </article>
+        <article class="card job">
+          <div class="when">2000.01 – 2001.01<span class="dur">1년 1개월</span></div>
+          <div class="job-body">
+            <div class="job-top"><h3>Seejapan</h3><span class="role">창업 · 대표</span></div>
+            <p class="summary">대학 재학 중 일본정보센터를 창업해 일본정보 포털, 일본 쇼핑몰, 일본정보 무가지 운영 등 다수의 프로젝트 영업, 제안 디렉팅, 사업 수행 및 관리를 맡았습니다.</p>
+          </div>
+        </article>
+      </div>
+    </details>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="label">Selected Projects</p><h2>분야별 대표 사업</h2></div>
+      <p>공공 분야별로 대표 사업을 골랐습니다. 분야를 눌러 걸러 보세요.</p>
+      <button type="button" class="sec-toggle" aria-expanded="true" aria-controls="projects-body"><span>접기</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg></button>
+    </div>
+    <div class="sec-body" id="projects-body">
+    <div class="filters" role="group" aria-label="분야 필터">
+      <button type="button" id="f-all" data-f="all" aria-pressed="true">전체</button>
+      <button type="button" id="f-ai" data-f="ai" aria-pressed="false">AI·데이터</button>
+      <button type="button" id="f-geo" data-f="geo" aria-pressed="false">공간정보</button>
+      <button type="button" id="f-data" data-f="data" aria-pressed="false">공공데이터</button>
+      <button type="button" id="f-tour" data-f="tour" aria-pressed="false">관광·지역</button>
+      <button type="button" id="f-web" data-f="web" aria-pressed="false">공공 웹·모바일</button>
+      <button type="button" id="f-agri" data-f="agri" aria-pressed="false">농업·농촌</button>
+      <button type="button" id="f-welfare" data-f="welfare" aria-pressed="false">보건·복지</button>
+    </div>
+    <div class="projects" id="proj"></div>
+    </div>
+  </div>
+</section>
+
+<section id="ax">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="label">AX · AI Agent</p><h2>AI로 일하는 방식을 다시 설계합니다</h2></div>
+      <p>AX혁신센터를 꾸려 전사 AI 전환을 이끌고, 제안·영업·운영·서비스 영역에서 직접 에이전트를 기획하고 만들어 왔습니다.</p>
+      <button type="button" class="sec-toggle" aria-expanded="true" aria-controls="ax-body"><span>접기</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg></button>
+    </div>
+    <div class="sec-body" id="ax-body">
+
+    <h3 class="sub-head">AX혁신센터 활동</h3>
+    <ol class="ax-time">
+      <li><span class="when">2025.12</span><b>센터 구성</b><p>AX혁신센터 구성원 모집과 면담을 거쳐 팀을 꾸리고 2026년 계획 초안 수립</p></li>
+      <li><span class="when">2026.03</span><b>전략 수립</b><p>AX혁신센터 2026년 계획 보고, AX혁신센터 홈페이지 구축 리딩, AX Offering Pack, AI 기반 RFP 대응 고도화 계획</p></li>
+      <li><span class="when">2026.05</span><b>표준화</b><p>AX 전환 워크프로세스 표준화 가이드(SOP) 착수, 화면정의서 표준화, 센터 작업물 보고</p></li>
+      <li><span class="when">2026.06</span><b>사내 확산</b><p>다수의 사내 AI 강연(‘우리가 AI로 풀려는 진짜 문제는 무엇인가’ 등), AX 나침반, Claude 올인원 업무허브</p></li>
+      <li><span class="when">2026.07</span><b>프레임워크</b><p>SOP 완성, Wylie AI-Ready Framework, Agent UX 10 Patterns, 전사 보고 영상 ‘AX 대항해 시즌1’</p></li>
+      <li><span class="when">2026.09</span><b>방법론</b><p>Web for AI 가이드북·실무 구축 방법론, 폐쇄망 에이전트 경영진 보고</p></li>
+    </ol>
+
+    <div class="sub-row">
+      <h3 class="sub-head">직접 만든 에이전트와 AI 서비스</h3>
+      <div class="filters" role="group" aria-label="에이전트 분야 필터" id="agent-filters">
+        <button type="button" id="a-all" data-f="all" aria-pressed="true">전체</button>
+        <button type="button" id="a-sales" data-f="sales" aria-pressed="false">제안·영업</button>
+        <button type="button" id="a-ops" data-f="ops" aria-pressed="false">기획·운영</button>
+        <button type="button" id="a-svc" data-f="svc" aria-pressed="false">AI 서비스</button>
+        <button type="button" id="a-in" data-f="in" aria-pressed="false">사내·생산성</button>
+      </div>
+    </div>
+
+    <div class="card ax-main" data-s="sales">
+      <p class="label">Featured · 제안·영업</p>
+      <h3 style="margin-top:10px">범용 제안발표 Agent</h3>
+      <p>어떤 사업이든 RFP만 넣으면 사업 등록부터 제안발표 자료까지 만들어지는 것을 목표로 한 범용 에이전트입니다. 제안 파트별 방법론을 스킬로 분리하고, 성격이 다른 여러 사업으로 검증하며 고도화하고 있습니다.</p>
+      <ol class="flow" aria-label="에이전트 처리 순서" style="padding:0;list-style:none">
+        <li data-agent="research"><b>RFP 분석</b><small>과업 범위·평가 기준·핵심 요구 추출</small></li>
+        <li data-agent="direction"><b>제안 전략</b><small>차별화 포인트와 수주 논리</small></li>
+        <li data-agent="outline"><b>스토리텔링</b><small>목차와 장표 흐름 구성</small></li>
+        <li data-agent="design"><b>슬라이드 리뷰</b><small>근거 위계·가독성 점검</small></li>
+        <li data-agent="build"><b>발표 시나리오</b><small>대본과 예상 질의 준비</small></li>
+        <li data-agent="verify"><b>평가위원 검증</b><small>평가 관점 최종 검토</small></li>
+      </ol>
+    </div>
+    <div class="agents" id="agents"></div>
+
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="label">About</p><h2>일하는 방식과 프로필</h2></div>
+      <button type="button" class="sec-toggle" aria-expanded="true" aria-controls="about-body"><span>접기</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg></button>
+    </div>
+    <div class="sec-body" id="about-body">
+    <div class="about">
+      <div class="card quote">
+        <blockquote>목표를 먼저 정하고,<br><span>정확한 기준과 판단 근거를 세워 끝까지 달성합니다.</span></blockquote>
+        <p>대학 시절 창업한 뒤로 지금까지 기술영업 한 길을 걸었습니다. 맡은 목표는 늘 그 이상으로 해내려 했고, 문제가 생기면 해결책을 먼저 들고 가 추진하는 편입니다.</p>
+        <p>발주기관의 목표, 실제 이용자의 필요, 수행조직의 실행 조건을 함께 봅니다. 제안서에서는 핵심 주장과 근거의 위계, 과업 사이의 연결, 발표의 가독성을 중요하게 여기고, 확인되지 않은 수치는 쓰지 않습니다.</p>
+      </div>
+      <div class="profile">
+        <div class="card"><p class="label">Education</p>
+          <dl>
+            <div class="row"><dt>동신대학교 정보통신공학</dt><dd>1994 – 2000 · 4.19 / 4.5</dd></div>
+            <div class="row"><dt>광주진흥고등학교</dt><dd>1994 졸업</dd></div>
+          </dl>
+        </div>
+        <div class="card"><p class="label">Certificates · Language</p>
+          <dl>
+            <div class="row"><dt>공인중개사</dt><dd>2022.12</dd></div>
+            <div class="row"><dt>일본어 JLPT · JPT</dt><dd>일본 연수 1년 · 프리토킹 강사</dd></div>
+            <div class="row"><dt>호주 어학연수</dt><dd>2006 · 4개월</dd></div>
+          </dl>
+        </div>
+        <div class="card"><p class="label">Looking For</p>
+          <dl>
+            <div class="row"><dt>공공사업 총괄 임원</dt><dd>사업개발·제안 총괄</dd></div>
+            <div class="row"><dt>AX 사업·조직 리더</dt><dd>서울 전 지역 · 일본</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="card contact" id="contact">
+    <div class="me" aria-hidden="true"><span class="me-bubble">함께 해요!</span><span class="me-char" id="me-char"></span></div>
+    <h2>다음 사업을<br>함께 만들겠습니다</h2>
+    <p class="contact-lede">합류하는 날부터 영업, 제안, 수행, AX 전환을 끝까지 책임지겠습니다.</p>
+    <div class="offer">
+      <div><p class="label">01 · 영업</p><h3>바로 움직이는 영업</h3><p>25년간 중앙부처·지자체·공공기관을 상대해 온 경험으로 사업 발굴과 사전 영업을 곧바로 시작합니다.</p></div>
+      <div><p class="label">02 · 제안</p><h3>이기는 제안 체계</h3><p>평가 관점에서 전략·스토리·발표를 설계하고, AI 제안 에이전트로 준비 시간은 줄이고 품질은 고르게 맞춥니다.</p></div>
+      <div><p class="label">03 · 수행</p><h3>수주 이후까지 책임</h3><p>PM·운영 관리와 고객 관계를 이어 가 재계약과 후속 사업으로 연결합니다.</p></div>
+      <div><p class="label">04 · AX</p><h3>조직의 AI 전환</h3><p>SOP·가이드·사내 강연으로 구성원이 AI를 실제 업무에 쓰도록 정착시킵니다.</p></div>
+    </div>
+    <p class="phone">연락처 : <span>010-8575-8838</span></p>
+    <div class="mail">
+      <code id="email">pyo2289@gmail.com</code>
+      <button type="button" id="copy">주소 복사</button>
+    </div>
+    <p class="more">그밖에 저를 더 알고 싶다면 클릭해 주세요</p>
+    <a class="insta" href="https://www.instagram.com/kyungpyoyoo/" target="_blank" rel="noopener">
+      <span class="insta-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="#fff" stroke="none"/></svg></span>
+      <span class="insta-txt"><b>Instagram</b><span>@kyungpyoyoo</span></span>
+      <span class="insta-go" aria-hidden="true">→</span>
+    </a>
+  </div>
+  <footer><span>© 2026 유경표</span><span>공공 SI 영업 · 제안 총괄 · AX까지</span></footer>
+</div>
+
+<script>
+  const S = { ai: 'AI·데이터', geo: '공간정보', data: '공공데이터', tour: '관광·지역', web: '공공 웹·모바일', agri: '농업·농촌', welfare: '보건·복지' };
+  const P = [
+    ['ai', '2026', '모빌리티 데이터 분석 플랫폼 구축', '이동의즐거움', '본부 총괄·수주'],
+    ['web', '2026', '방송통신 신용정보 공동관리 홈페이지·인프라 개선', '한국정보통신진흥협회(KAIT)', '본부 총괄·수주'],
+    ['ai', '2026', '의미기반검색 컨설팅 및 계약 추진', '한국주택금융공사', '본부 총괄·수주'],
+    ['ai', '2026', '데이터분석 통계 시스템 구축', '이동의즐거움', '영업·수주'],
+    ['web', '2026', '한국사능력검정시험 시스템 고도화', '국사편찬위원회', '본부 총괄·수주'],
+    ['web', '2026', '의사과학자 공모 홈페이지', '대한민국의학한림원', '본부 총괄·수의계약'],
+    ['welfare', '2026', '유지보수 사업', '국립재활원', '본부 총괄·재계약'],
+    ['welfare', '2026', '대표누리집 유지관리', '국립보건연구원', '본부 총괄·재계약'],
+    ['welfare', '2023', '홈페이지 유지보수', '질병관리청 국립보건연구원', '제안·영업·PM'],
+    ['web', '2022–23', '에너지사이버박물관 구축', '에너지정보문화재단', '제안서·발표·PM'],
+    ['web', '2022–23', '운영 및 유지보수', '경기도시장상권진흥원', '제안서·발표·PM'],
+    ['agri', '2021', '귀농귀촌종합지원센터 운영', '농림수산식품교육문화정보원', '제안서·발표·PM'],
+    ['welfare', '2021', '보조기기열림플랫폼 구축', '국립재활원', '제안서·발표·PM'],
+    ['welfare', '2021', '어르신 건강데이터 관리시스템', '서울 중구', 'PM'],
+    ['web', '2021', '공공건설지원센터 구축', '경기도', '제안서·발표·PM'],
+    ['tour', '2019', '두루누비', '한국관광공사', '영업·기획·수주'],
+    ['agri', '2018–19', '6차산업 스마트콘텐츠 제작', '한국농어촌공사', '영업·기획·수주'],
+    ['tour', '2018', '대한제국길 도보관광안내시스템', '서울 중구', '영업·수주'],
+    ['web', '2018', '교통방송 앱', 'TBN', '영업·수주'],
+    ['web', '2017', '홈페이지 빌드업 (대표 홈페이지·모바일 청약·공공데이터)', '서울주택도시공사', '영업·수주'],
+    ['data', '2013–16', '폐기물 3.0', '수도권매립지관리공사', '영업·기획·수주'],
+    ['data', '2013–16', '공공데이터 포털 3.0', '전라북도', '영업·기획·수주'],
+    ['geo', '2007–11', '통합지리정보시스템 (SDW)', '서울시', '영업 대표·기획'],
+    ['geo', '2009–11', 'GIS포털', '서울시', '영업 대표·기획'],
+    ['agri', '2008–12', '스마트폰 현장조사, 중금속 지리정보시스템', '국립농산물품질관리원', '예산기획·기술영업'],
+    ['agri', '2009', '현장조사 시스템, 농촌용수·지하수·시설물관리', '한국농어촌공사', '예산기획·기술영업'],
+    ['web', '2006–07', '광주디자인센터 통합정보시스템, 제88회 전국체전 홈페이지', '광주광역시 등', '영업·제안·PT·수주'],
+  ];
+  const grid = document.getElementById('proj');
+  const esc = s => s.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+  grid.innerHTML = P.map(([s, y, t, o, r]) =>
+    `<article class="card proj" data-s="${s}"><div class="meta"><span class="tag">${S[s]}</span><span>${y}</span></div><h3>${esc(t)}</h3><p class="org">${esc(o)}</p><p class="role">${esc(r)}</p></article>`).join('');
+
+  const btns = document.querySelectorAll('#projects .filters button');
+  btns.forEach(b => {
+    const n = b.dataset.f === 'all' ? P.length : P.filter(p => p[0] === b.dataset.f).length;
+    if (!b.querySelector('.n')) b.insertAdjacentHTML('beforeend', `<span class="n">${n}</span>`);
+    b.addEventListener('click', () => {
+      btns.forEach(x => x.setAttribute('aria-pressed', x === b));
+      grid.querySelectorAll('.proj').forEach(c => { c.hidden = b.dataset.f !== 'all' && c.dataset.s !== b.dataset.f; });
+    });
+  });
+
+  const AS = { sales: '제안·영업', ops: '기획·운영', svc: 'AI 서비스', in: '사내·생산성' };
+  const A = [
+    ['sales', 'RFP Intelligence 시스템', '수집·분석, 제안 생성, QA·검증, 학습·최적화의 4개 체인에 20개 에이전트를 배치한 RFP 대응 오케스트레이션', '설계·프로토타입'],
+    ['sales', 'RFI 대응 Agent', 'UX 평가 프레임워크로 고객 홈페이지를 분석하고 개편 방향·예산·기간까지 RFI 회신 초안을 작성 (KAI 사례)', '적용'],
+    ['sales', '제안 스킬·경쟁사 분석 Agent', '사업 이해부터 추진 전략·일정까지 제안 파트별 스킬 13종, 나라장터 낙찰정보 기반 경쟁사·전차사업자 분석', '운영 중'],
+    ['sales', 'Pre-Sales Agent Team', '영업 초기 단계의 고객 분석과 제안 방향 정리를 에이전트 팀으로 나눠 맡는 프리세일즈 자동화', '시연'],
+    ['sales', 'Sales Agent', '와일리 홈페이지 문의 데이터를 분석해 영업 기회와 대응 우선순위를 정리', '운영 중'],
+    ['sales', 'Hotcall', '고객 문의가 들어오면 PRD·견적·프로토타입까지 바로 만드는 문의 대응 자동화 구상', '기획'],
+    ['ops', 'Plan Agent', '개발이 시작되기 전에 결과 화면을 함께 눌러 보며 합의하는 AI 기반 기획 업무 시스템', '프로토타입'],
+    ['ops', 'Wylie OpsPilot', '빌드·배포·모니터링·로그 분석·AI 원인 추정을 한 콘솔에서 다루는 운영 관제 도구 (AIOps)', '자체 개발'],
+    ['ops', 'SysOps Agent', '시스템 운영 업무를 에이전트로 자동화하는 방안 정리와 보고 (2026.03)', '보고'],
+    ['ops', 'SEO·GEO 진단 대시보드', '웹사이트의 검색·생성형 검색 노출 상태를 진단하는 대시보드, 고객사 GEO PoC 제안에 활용', '운영 중'],
+    ['svc', '마음AI', '독거 어르신에게 안부 전화를 거는 AI 상담원. 2026 인공지능 챔피언 대회 구현 제안 (팀 대표)', '운영'],
+    ['svc', 'SmartCue', '개인정보 없이 방문자 행동 패턴만으로 다음 콘텐츠·상품을 안내하는 AI 큐레이션. 스크립트 한 줄로 도입', '저작권 등록'],
+    ['svc', '펫네임AI', '반려동물 이름을 AI로 추천하는 서비스', 'AI 서비스'],
+    ['svc', '메뉴판 읽기 앱', '메뉴판을 촬영하면 내용을 읽어 주는 모바일 앱', '프로토타입'],
+    ['in', '디지털명함 서비스', '구성원별 모바일 명함을 QR·vCard로 공유하고 관리자 화면에서 회사 정보와 프로필을 관리하는 사내 서비스', '사내 운영'],
+    ['in', 'wylie101things', '구성원이 함께 만드는 와일리 사내문화 플랫폼', '사내 운영'],
+    ['in', 'Hermes · 지식화 앱', '개인 비서 에이전트와 업무 지식을 정리·검색하는 지식화 앱', '개인 생산성'],
+    ['in', '영상 프롬프트 팀', '이미지·영상 생성 프롬프트를 콘셉트·연출·검수 3개 역할 에이전트가 나눠 작성', '사내 활용'],
+    ['in', '제안서 레이아웃 Agent', '제안 장표 레이아웃을 구조화해 재사용하는 슬라이드 생성 체계', '고도화 중'],
+  ];
+  const ag = document.getElementById('agents');
+  ag.innerHTML = A.map(([s, t, d, st]) =>
+    `<article class="card agent" data-s="${s}"><p class="meta">${AS[s]}</p><h4>${esc(t)}</h4><p>${esc(d)}</p><p class="stage">${esc(st)}</p></article>`).join('');
+  const abtns = document.querySelectorAll('#agent-filters button');
+  const feat = document.querySelector('#ax .ax-main');
+  abtns.forEach(b => {
+    const f = b.dataset.f;
+    const n = f === 'all' ? A.length + 1 : A.filter(a => a[0] === f).length + (f === 'sales' ? 1 : 0);
+    if (!b.querySelector('.n')) b.insertAdjacentHTML('beforeend', `<span class="n">${n}</span>`);
+    b.addEventListener('click', () => {
+      abtns.forEach(x => x.setAttribute('aria-pressed', x === b));
+      ag.querySelectorAll('.agent').forEach(c => { c.hidden = f !== 'all' && c.dataset.s !== f; });
+      feat.hidden = f !== 'all' && f !== 'sales';
+    });
+  });
+
+  // 제안발표 Agent 캐릭터(propose_agent ui/appbar.js에서 가져옴): 물결 테두리 둥근 몸 + 작은 검은 눈, 단계마다 색과 도구가 다르다
+  const scallop = (cx, cy, r, n = 14, w = .6) => '<path class="c-body" d="M' + Array.from({ length: n * 12 }, (_, k) => {
+    const a = k / (n * 12) * 2 * Math.PI, R = r - w + 2 * w * Math.sqrt(Math.abs(Math.cos(n * a / 2)));
+    return `${(cx + R * Math.cos(a)).toFixed(2)} ${(cy + R * Math.sin(a)).toFixed(2)}`;
+  }).join('L') + 'Z"/>';
+  const AG = {
+    research: { body: scallop(14, 17, 11), x: 15.4, y: 14.6, gear: ['', '<circle class="c-mono" cx="19" cy="14.6" r="3"/><path class="c-chain" d="M19.6 17.6q1.4 3 .4 6"/><path class="c-handle" d="M27.6 17.4l.8 8.6"/><circle class="c-lens" cx="27.4" cy="12.4" r="4.2"/>'] },
+    direction: { body: scallop(16, 17, 11.5), x: 16, y: 15.6, gear: ['<path class="c-pole" d="M16 6V-.6"/><path class="c-flag" d="M16.4-.6l6.2 2.3-6.2 2.3z"/>', ''] },
+    design: { body: scallop(16, 17, 11.5), x: 16, y: 16, gear: ['', '<path class="c-beret" d="M5.2 10.4Q5.4 3.2 15 3q9.8 0 9 4.8-9.4-1.6-18.8 2.6z"/><circle class="c-beret" cx="14" cy="2.4" r="1.3"/>'] },
+    outline: { body: scallop(16, 17, 11.5), x: 16, y: 15.6, gear: ['<g transform="rotate(40 24 4)"><rect class="c-pencil" x="22.4" y="-.4" width="3.2" height="9.4" rx=".6"/><rect class="c-eraser" x="22.4" y="-2.8" width="3.2" height="2.8" rx=".8"/></g>', ''] },
+    build: { body: scallop(16, 17, 11.5), x: 16, y: 16.4, gear: ['', '<path class="c-hat" d="M5.4 10.2Q5.8 2.6 16 2.6T26.6 10.2z"/><path class="c-brim" d="M3 10.2h26"/><path class="c-ridge" d="M16 3V9.4"/>'] },
+    verify: { body: scallop(16, 17, 11.5), x: 16, y: 16, happy: true, gear: ['', '<circle class="c-ok" cx="25.4" cy="25.4" r="4.6"/><path class="c-okm" d="M23.4 25.5l1.4 1.4 2.6-2.8"/>'] },
+  };
+  const EYE = { open: '<circle cx="-3.6" cy="0" r="1.7"/><circle cx="3.6" cy="0" r="1.7"/>', happy: '<path class="c-stroke" d="M-5.2.8q1.6-2.4 3.2 0M2 .8q1.6-2.4 3.2 0"/>' };
+  document.querySelectorAll('.flow li[data-agent]').forEach((li, i) => {
+    if (li.querySelector('.pa-char')) return;
+    const id = li.dataset.agent, a = AG[id];
+    li.style.setProperty('--i', i);
+    const c = document.createElement('span');
+    c.className = `pa-char a-${id}`;
+    c.setAttribute('aria-hidden', 'true');
+    c.innerHTML = '<svg viewBox="0 -4 32 36"><ellipse class="c-shadow" cx="16" cy="30.6" rx="8.5" ry="1.3"/>'
+      + `<g class="c-float">${a.gear[0]}${a.body}<g transform="translate(${a.x} ${a.y})"><g class="c-eyes">${a.happy ? EYE.happy : EYE.open}</g></g>${a.gear[1]}</g></svg>`;
+    li.prepend(c);
+  });
+
+  // 대분류 접기·펼치기: 기본은 모두 접힘, 바꾼 상태는 이 브라우저에만 기억한다
+  const SECS = ['skills', 'career', 'projects', 'ax', 'about'].map(id => document.getElementById(id));
+  const load = () => { try { const v = localStorage.getItem('pf.collapsed'); return v === null ? null : JSON.parse(v); } catch (e) { return null; } };
+  const save = () => { try { localStorage.setItem('pf.collapsed', JSON.stringify(SECS.filter(s => s.classList.contains('collapsed')).map(s => s.id))); } catch (e) {} };
+  const allBtn = document.getElementById('toggle-all');
+  const setSec = (s, closed) => {
+    s.classList.toggle('collapsed', closed);
+    const b = s.querySelector('.sec-head .sec-toggle');
+    b.setAttribute('aria-expanded', String(!closed));
+    b.querySelector('span').textContent = closed ? '펼치기' : '접기';
+  };
+  const syncAll = () => { allBtn.textContent = SECS.every(s => s.classList.contains('collapsed')) ? '모두 펼치기' : '모두 접기'; };
+  const saved = load();
+  SECS.forEach(s => {
+    setSec(s, saved ? saved.includes(s.id) : true);   // 처음 여는 사람은 모두 접힌 상태로 시작
+    s.querySelector('.sec-head .sec-toggle').addEventListener('click', () => { setSec(s, !s.classList.contains('collapsed')); save(); syncAll(); });
+  });
+  allBtn.addEventListener('click', () => { const close = !SECS.every(s => s.classList.contains('collapsed')); SECS.forEach(s => setSec(s, close)); save(); syncAll(); });
+  document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', () => {
+    const s = document.getElementById(a.getAttribute('href').slice(1));
+    if (s && s.classList.contains('collapsed')) { setSec(s, false); save(); syncAll(); }
+  }));
+  syncAll();
+
+  // 내 캐릭터: propose_agent에서 사용자가 준 주홍 캐릭터(외눈 안경·돋보기)
+  const me = document.getElementById('me-char');
+  if (me && !me.firstChild) {
+    const a = AG.research;   // 사용자가 준 원래 캐릭터: 주홍 물결 몸 · 외눈 안경 · 돋보기
+    me.className = 'me-char pa-char a-research';
+    me.innerHTML = '<svg viewBox="0 -4 34 38"><ellipse class="c-shadow m-shadow" cx="15" cy="30.6" rx="9" ry="1.4"/>'
+      + `<g class="m-float">${a.gear[0]}${a.body}<g transform="translate(${a.x} ${a.y})"><g class="m-eyes c-eyes">${EYE.open}</g></g>${a.gear[1]}</g></svg>`;
+  }
+
+  const copy = document.getElementById('copy');
+  copy.addEventListener('click', () => {
+    const el = document.getElementById('email');
+    const done = () => { copy.textContent = '복사됨'; setTimeout(() => copy.textContent = '주소 복사', 1600); };
+    const fallback = () => {
+      const r = document.createRange(); r.selectNodeContents(el);
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      copy.textContent = 'Ctrl+C로 복사';
+    };
+    if (navigator.clipboard) navigator.clipboard.writeText(el.textContent).then(done, fallback); else fallback();
+  });
+</script>
+
+</body>
+</html>
