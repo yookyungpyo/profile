@@ -211,6 +211,7 @@ section { padding-block: 88px 24px; scroll-margin-top: 60px; }
 .months .biz span { font-size: 13px; color: var(--ink); line-height: 1.5; padding-left: 12px; position: relative; }
 .months .biz span::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; border-radius: 2px; background: var(--accent); }
 .months .work { padding-top: 10px; border-top: 1px dashed var(--line); }
+.months .work:empty { border-top: 0; padding-top: 0; }
 .months .work span { font-size: 13px; color: var(--muted); line-height: 1.5; padding-left: 12px; position: relative; }
 .months .work span::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; border-radius: 2px; background: var(--muted); opacity: .6; }
 .areas { margin-top: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
@@ -540,13 +541,13 @@ footer { padding-block: 0 48px; color: var(--muted); font-size: 13px; display: f
             <li><b>1월</b><div class="biz"><span>인스파이어 모바일앱 제안 발표</span><span>국립보건연구원·KAIT·강남보건소 재계약</span></div><div class="work"><span>월별 현황 대시보드 구축</span></div></li>
             <li><b>2월</b><div class="biz"><span>한국사능력검정 시스템 고도화 계약</span></div><div class="work"><span>현황 분석 에이전트 구축</span></div></li>
             <li><b>3월</b><div class="biz"><span>아이엠뱅크 디자인시스템 제안·발표</span></div><div class="work"><span>AX혁신센터 2026 계획 발표</span><span>AX혁신센터 홈페이지 구축 리딩</span><span>SysOps Agent 구축</span></div></li>
-            <li><b>4월</b><div class="biz"><span>NIA 공공 웹·앱 UI/UX 발표</span></div><div class="work"><span>전략영업 역할 정의</span><span>AI 챔피언 대회 마음AI 구현 제안</span></div></li>
+            <li><b>4월</b><div class="biz"><span>NIA 공공 웹·앱 UI/UX 발표</span></div><div class="work"><span>전략영업 역할 정의</span><span>AI 챔피언 대회 마음AI 구현</span></div></li>
             <li><b>5월</b><div class="biz"><span>이동의즐거움 데이터분석 시스템 수주</span><span>NIA 대표홈페이지 개편 컨설팅</span></div><div class="work"><span>SmartCue(AI-Product) 총괄 리딩</span></div></li>
             <li><b>6월</b><div class="biz"><span>주택금융공사 의미기반검색 컨설팅 및 계약 추진</span></div><div class="work"><span>SmartCue 저작권 등록</span><span>다수의 사내 AI 강연</span></div></li>
             <li><b>7월</b><div class="biz"><span>한림원 의사과학자 홈페이지 계약</span></div><div class="work"><span>AX 전환 SOP 완성</span><span>전사 보고 영상 ‘AX 대항해 시즌1’</span></div></li>
             <li><b>8월</b><div class="biz"><span>국립재활원 유지보수 계약</span></div><div class="work"><span>AI-Ready 웹 전환 보고서</span><span>컨버젼스본부 업무 체계화</span></div></li>
-            <li><b>9월</b><div class="biz"><span>KAIT 신용정보 공동관리 제안·발표</span></div><div class="work"><span>Web for AI 가이드북</span><span>폐쇄망 에이전트 보고</span></div></li>
-            <li><b>10월</b><div class="biz"><span>이동의즐거움 모빌리티 데이터 플랫폼 계약</span><span>KAIT 신용정보 공동관리 수주</span></div><div class="work"><span>2027년 사업계획 수립</span></div></li>
+            <li><b>9월</b><div class="biz"><span>KAIT 신용정보 공동관리 제안·발표</span></div><div class="work"><span>Web for AI 가이드북</span><span>폐쇄망 에이전트 구축 리딩</span></div></li>
+            <li><b>10월</b><div class="biz"><span>이동의즐거움 모빌리티 데이터 플랫폼 계약</span><span>KAIT 신용정보 공동관리 수주</span></div><div class="work"></div></li>
           </ol>
 
           <div class="areas">
@@ -583,7 +584,7 @@ footer { padding-block: 0 48px; color: var(--muted); font-size: 13px; display: f
                 <li>AX 전환 워크프로세스 표준화 가이드(SOP) 완성</li>
                 <li>AI-Ready 웹 전환 보고서, Web for AI 가이드북·구축 방법론</li>
                 <li>전사 보고 영상 ‘AX 대항해 시즌1’, 다수의 사내 AI 강연</li>
-                <li>폐쇄망 에이전트 경영진 보고, 사내 AI 경진대회 기획</li>
+                <li>폐쇄망 에이전트 구축 리딩, 사내 AI 경진대회 기획</li>
               </ul>
             </div>
             <div class="area">
@@ -759,7 +760,7 @@ footer { padding-block: 0 48px; color: var(--muted); font-size: 13px; display: f
       <li><span class="when">2026.05</span><b>표준화</b><p>AX 전환 워크프로세스 표준화 가이드(SOP) 착수, 화면정의서 표준화, 센터 작업물 보고</p></li>
       <li><span class="when">2026.06</span><b>사내 확산</b><p>다수의 사내 AI 강연(‘우리가 AI로 풀려는 진짜 문제는 무엇인가’ 등), AX 나침반, Claude 올인원 업무허브</p></li>
       <li><span class="when">2026.07</span><b>프레임워크</b><p>SOP 완성, Wylie AI-Ready Framework, Agent UX 10 Patterns, 전사 보고 영상 ‘AX 대항해 시즌1’</p></li>
-      <li><span class="when">2026.09</span><b>방법론</b><p>Web for AI 가이드북·실무 구축 방법론, 폐쇄망 에이전트 경영진 보고</p></li>
+      <li><span class="when">2026.09</span><b>방법론</b><p>Web for AI 가이드북·실무 구축 방법론, 폐쇄망 에이전트 구축 리딩</p></li>
     </ol>
 
     <div class="sub-row">
@@ -915,7 +916,7 @@ footer { padding-block: 0 48px; color: var(--muted); font-size: 13px; display: f
     ['ops', 'Wylie OpsPilot', '빌드·배포·모니터링·로그 분석·AI 원인 추정을 한 콘솔에서 다루는 운영 관제 도구 (AIOps)', '자체 개발'],
     ['ops', 'SysOps Agent', '시스템 운영 업무를 에이전트로 자동화 (2026.03 구축)', '구축'],
     ['ops', 'SEO·GEO 진단 대시보드', '웹사이트의 검색·생성형 검색 노출 상태를 진단하는 대시보드, 고객사 GEO PoC 제안에 활용', '운영 중'],
-    ['svc', '마음AI', '독거 어르신에게 안부 전화를 거는 AI 상담원. 2026 인공지능 챔피언 대회 구현 제안 (팀 대표)', '운영'],
+    ['svc', '마음AI', '독거 어르신에게 안부 전화를 거는 AI 상담원. 2026 인공지능 챔피언 대회 구현 (팀 대표)', '운영'],
     ['svc', 'SmartCue', '개인정보 없이 방문자 행동 패턴만으로 다음 콘텐츠·상품을 안내하는 AI 큐레이션. 스크립트 한 줄로 도입', '저작권 등록'],
     ['svc', '펫네임AI', '반려동물 이름을 AI로 추천하는 서비스', 'AI 서비스'],
     ['svc', '메뉴판 읽기 앱', '메뉴판을 촬영하면 내용을 읽어 주는 모바일 앱', '프로토타입'],
