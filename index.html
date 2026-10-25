@@ -88,8 +88,20 @@ nav.top .wrap { display: flex; align-items: center; justify-content: space-betwe
 /* Hero */
 .hero { position: relative; overflow: hidden; isolation: isolate; }
 .hero > .wrap { position: relative; z-index: 1; }
-.flow-lines { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 45%, #000 100%); mask-image: linear-gradient(90deg, transparent 0%, #000 45%, #000 100%); }
+.bignum { position: absolute; z-index: 0; pointer-events: none; right: calc(240px + 3vw); top: 10px; width: min(50vw, 780px); transform: translateY(var(--py, 0px)); will-change: transform; }
+@media (max-width: 1200px) { .bignum { right: calc(220px + 2vw); width: 52vw; } }
+.bignum svg { display: block; width: 100%; height: auto; overflow: visible; }
+.bignum text { font-family: var(--sans); font-weight: 800; font-size: 520px; letter-spacing: -0.06em;
+  fill: color-mix(in srgb, var(--accent) 7%, transparent); stroke: color-mix(in srgb, var(--accent) 70%, transparent); stroke-width: 2; }
+.bignum-cap { position: absolute; right: 2%; bottom: 4%; font-family: var(--mono); font-size: 13px; letter-spacing: .3em; color: color-mix(in srgb, var(--accent) 70%, transparent); }
+@media (prefers-reduced-motion: no-preference) {
+  .bignum text { stroke-dasharray: 2600; stroke-dashoffset: 2600; fill-opacity: 0; animation: num-draw 3.2s cubic-bezier(.6,.1,.2,1) .2s forwards, num-fill 1.6s ease 2.6s forwards; }
+  .bignum-cap { opacity: 0; animation: cap-in 1s ease 3s forwards; }
+}
+@keyframes num-draw { to { stroke-dashoffset: 0; } }
+@keyframes num-fill { to { fill-opacity: 1; } }
+@keyframes cap-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (max-width: 640px) { .bignum { width: 92vw; right: -6vw; top: 38%; opacity: .7; } .bignum-cap { display: none; } }
 
 .hero { padding-block: 80px 40px; }
 .pill { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; padding: 6px 12px 6px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--muted); }
@@ -448,7 +460,7 @@ footer { padding-block: 0 48px; color: var(--muted); font-size: 13px; display: f
 </nav>
 
 <header class="hero">
-  <canvas class="flow-lines" id="flow-lines" aria-hidden="true"></canvas>
+  <div class="bignum" id="bignum" aria-hidden="true"><svg viewBox="0 0 640 460"><text x="640" y="400" text-anchor="end">25</text></svg><span class="bignum-cap">YEARS · SINCE 1999</span></div>
   <div class="wrap">
     <div class="hero-top">
       <div class="hero-text">
@@ -1005,46 +1017,14 @@ footer { padding-block: 0 48px; color: var(--muted); font-size: 13px; display: f
       + `<g class="m-float">${a.gear[0]}${a.body}<g transform="translate(${a.x} ${a.y})"><g class="m-eyes c-eyes">${EYE.open}</g></g>${a.gear[1]}</g></svg>`;
   }
 
-  // 첫 화면 배경: 포인트색 한 가지의 가는 등고선이 천천히 흐른다(동작 줄이기 설정이면 멈춘 한 장면)
-  const cv = document.getElementById('flow-lines');
-  if (cv && !cv.dataset.on) {
-    cv.dataset.on = '1';
-    const ctx = cv.getContext('2d');
-    const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let w = 0, h = 0, color = '#0a9f84';
-    const size = () => {
-      const r = cv.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2);
-      w = r.width; h = r.height; cv.width = w * d; cv.height = h * d; ctx.setTransform(d, 0, 0, d, 0, 0);
-      color = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || color;
-    };
-    const N = 22;
-    const draw = tm => {
-      ctx.clearRect(0, 0, w, h);
-      ctx.strokeStyle = color; ctx.lineWidth = 1.2;
-      for (let i = 0; i < N; i++) {
-        const k = i / (N - 1), base = h * (0.08 + k * 0.92);
-        ctx.globalAlpha = 0.16 + 0.30 * Math.sin(Math.PI * k);
-        ctx.beginPath();
-        for (let x = 0; x <= w; x += 8) {
-          const u = x / w;
-          const y = base
-            + Math.sin(u * 3.1 + tm * 0.00012 + i * 0.35) * h * 0.06
-            + Math.sin(u * 7.3 - tm * 0.00008 + i * 0.12) * h * 0.022 * (0.4 + u);
-          x ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
-        }
-        ctx.stroke();
-      }
-      ctx.globalAlpha = 1;
-    };
-    size(); draw(0);
-    addEventListener('resize', () => { size(); draw(performance.now()); });
-    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { size(); draw(performance.now()); });
-    if (!still) {
-      let on = true;
-      new IntersectionObserver(es => { on = es[0].isIntersecting; if (on) requestAnimationFrame(loop); }).observe(cv);
-      const loop = tm => { if (!on) return; draw(tm); requestAnimationFrame(loop); };
-      requestAnimationFrame(loop);
-    }
+  // 첫 화면 배경: 대형 숫자 25가 스크롤에 따라 조금 늦게 움직인다(동작 줄이기 설정이면 고정)
+  const big = document.getElementById('bignum');
+  if (big && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let ticking = false;
+    addEventListener('scroll', () => {
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(() => { big.style.setProperty('--py', Math.min(scrollY, 900) * 0.35 + 'px'); ticking = false; });
+    }, { passive: true });
   }
 
   const copy = document.getElementById('copy');
