@@ -79,7 +79,15 @@ nav.top .wrap { display: flex; align-items: center; justify-content: space-betwe
 .brand:hover small { text-decoration: underline; text-underline-offset: 4px; }
 .brand { align-items: center; font-family: "Nanum Pen Script", "Gaegu", cursive; font-weight: 400; font-size: 32px; line-height: 1; letter-spacing: 0; }
 .brand small { font-family: "Nanum Pen Script", "Gaegu", cursive; font-weight: 400; font-size: 26px; line-height: 1; letter-spacing: .01em; color: var(--accent); padding: 2px 0 2px 12px; border-left: 1px solid var(--line); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transform: rotate(-1.2deg); transform-origin: left center; }
-@media (max-width: 1100px) { .links a { display: none; } }
+@media (max-width: 1100px) {
+  nav.top .wrap { flex-wrap: wrap; height: auto; row-gap: 0; padding-top: 10px; }
+  .brand { flex: 1 1 0; }
+  .links { order: 3; flex: 0 0 100%; overflow-x: auto; scrollbar-width: none; padding: 6px 0 8px; margin-top: 6px; border-top: 1px solid var(--line); }
+  .links::-webkit-scrollbar { display: none; }
+  .links a { flex: none; font-size: 13.5px; padding: 6px 10px; }
+  .links a:first-child { margin-left: -10px; }
+  section { scroll-margin-top: 124px; }
+}
 @media (max-width: 960px) { .brand small { font-size: 22px; } }
 @media (max-width: 420px) { .brand small { font-size: 18px; } }
 .links { display: flex; gap: 4px; }
@@ -425,7 +433,6 @@ footer { padding-block: 0 48px; color: var(--muted); font-size: 13px; display: f
   .about { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
-  .links { display: none; }
   .hero { padding-block: 48px 24px; }
   .hero-top { grid-template-columns: 1fr; gap: 32px; }
   .portrait { order: -1; width: 200px; }
