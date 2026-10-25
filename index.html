@@ -297,6 +297,7 @@ details.older .timeline { margin-top: 0; }
 .agent .meta { font-family: var(--mono); font-size: 12px; color: var(--accent); }
 .agent h4 { margin: 0; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.35; }
 .agent p { color: var(--muted); font-size: 14px; }
+.agent .hl { color: var(--accent); font-weight: 700; padding: 1px 6px; border-radius: 6px; background: color-mix(in srgb, var(--accent) 14%, transparent); white-space: nowrap; }
 .agent .stage { margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink); }
 .consult { margin-top: 20px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 .consult .card { padding: 22px; display: flex; flex-direction: column; gap: 6px; }
@@ -512,7 +513,7 @@ footer { padding-block: 0 48px; color: var(--muted); font-size: 13px; display: f
         <p class="feat-tag">Core · Now</p>
         <h3>AX와 AI Agent</h3>
         <p>AX혁신센터장으로 전사 AI 전환을 이끌고, 제안·영업·운영 업무용 Agent를 직접 기획하고 구축을 완료했습니다.</p>
-        <div class="feat-stats"><span><b>21</b>에이전트·AI 서비스</span><span><b>SOP</b>전사 AX 표준</span></div>
+        <div class="feat-stats"><span><b>19</b>에이전트·AI 서비스</span><span><b>SOP</b>전사 AX 표준</span></div>
         <a class="feat-link" href="#ax">AX 활동 보기 →</a>
       </div>
     </div>
@@ -911,11 +912,9 @@ footer { padding-block: 0 48px; color: var(--muted); font-size: 13px; display: f
     ['sales', 'Sales Agent', '와일리 홈페이지 문의 데이터를 분석해 영업 기회와 대응 우선순위를 System One Model로 테스트 수행', '테스트'],
     ['sales', 'Hotcall', '고객 문의가 들어오면 PRD·견적·프로토타입까지 바로 만드는 문의 대응 자동화 구축', '구축'],
     ['ops', 'Plan Agent', '개발이 시작되기 전에 결과 화면을 함께 눌러 보며 합의하는 AI 기반 기획 업무 시스템', '프로토타입'],
-    ['ops', 'Wylie OpsPilot', '빌드·배포·모니터링·로그 분석·AI 원인 추정을 한 콘솔에서 다루는 운영 관제 도구 (AIOps)', '자체 개발'],
-    ['ops', 'SysOps Agent', '시스템 운영 업무를 에이전트로 자동화 (2026.03 구축)', '구축'],
     ['ops', 'SEO·GEO 진단 대시보드', '웹사이트의 검색·생성형 검색 노출 상태를 진단하는 대시보드, 고객사 GEO PoC 제안에 활용', '운영 중'],
     ['svc', '마음AI', '독거 어르신에게 안부 전화를 거는 AI 상담원. 2026 인공지능 챔피언 대회 구현 (팀 대표)', '운영'],
-    ['svc', 'SmartCue', '개인정보 없이 방문자 행동 패턴만으로 다음 콘텐츠·상품을 안내하는 AI 큐레이션. 스크립트 한 줄로 도입', '저작권 등록'],
+    ['svc', 'SmartCue', '개인정보 없이 방문자 행동 패턴만으로 다음 콘텐츠·상품을 안내하는 AI 큐레이션', '저작권 등록'],
     ['svc', '펫네임AI', '반려동물 이름을 AI로 추천하는 서비스', 'AI 서비스'],
     ['svc', '메뉴판 읽기 앱', '메뉴판을 촬영하면 내용을 읽어 주는 모바일 앱', '프로토타입'],
     ['in', '디지털명함 서비스', '구성원별 모바일 명함을 QR·vCard로 공유하고 관리자 화면에서 회사 정보와 프로필을 관리하는 사내 서비스', '사내 운영'],
@@ -927,7 +926,7 @@ footer { padding-block: 0 48px; color: var(--muted); font-size: 13px; display: f
   ];
   const ag = document.getElementById('agents');
   ag.innerHTML = A.map(([s, t, d, st]) =>
-    `<article class="card agent" data-s="${s}"><p class="meta">${AS[s]}</p><h4>${esc(t)}</h4><p>${esc(d)}</p><p class="stage">${esc(st)}</p></article>`).join('');
+    `<article class="card agent" data-s="${s}"><p class="meta">${AS[s]}</p><h4>${esc(t)}</h4><p>${esc(d).replace('System One Model', '<b class="hl">System One Model</b>')}</p><p class="stage">${esc(st)}</p></article>`).join('');
   const abtns = document.querySelectorAll('#agent-filters button');
   const feat = document.querySelector('#ax .ax-main');
   abtns.forEach(b => {
