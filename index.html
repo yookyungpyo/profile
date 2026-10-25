@@ -305,8 +305,8 @@ details.older .timeline { margin-top: 0; }
 .consult p:not(.label) { color: var(--muted); font-size: 14px; }
 
 /* 대분류 접기·펼치기 */
-.sec-toggle { white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px 7px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--muted); font: inherit; font-size: 13px; cursor: pointer; align-self: center; }
-.sec-toggle:hover { color: var(--ink); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+.sec-toggle { white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px 7px 14px; border-radius: 999px; border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink); font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; align-self: center; }
+.sec-toggle:hover { color: var(--accent-ink); background: color-mix(in srgb, var(--accent) 85%, var(--ink)); border-color: color-mix(in srgb, var(--accent) 85%, var(--ink)); }
 .sec-toggle svg { transition: transform .25s; }
 section.collapsed .sec-toggle svg { transform: rotate(180deg); }
 section.collapsed .sec-body { display: none; }
