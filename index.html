@@ -974,7 +974,7 @@ footer { padding-block: 0 48px; color: var(--muted); font-size: 13px; display: f
     li.prepend(c);
   });
 
-  // 대분류 접기·펼치기: 기본은 모두 접힘, 바꾼 상태는 이 브라우저에만 기억한다
+  // 대분류 접기·펼치기: 페이지를 열면 항상 모두 접힌 상태
   const SECS = ['skills', 'career', 'projects', 'ax', 'about'].map(id => document.getElementById(id));
   const load = () => { try { const v = localStorage.getItem('pf.collapsed'); return v === null ? null : JSON.parse(v); } catch (e) { return null; } };
   const save = () => { try { localStorage.setItem('pf.collapsed', JSON.stringify(SECS.filter(s => s.classList.contains('collapsed')).map(s => s.id))); } catch (e) {} };
@@ -987,7 +987,7 @@ footer { padding-block: 0 48px; color: var(--muted); font-size: 13px; display: f
   const syncAll = () => {};
   const saved = load();
   SECS.forEach(s => {
-    setSec(s, saved ? saved.includes(s.id) : true);   // 처음 여는 사람은 모두 접힌 상태로 시작
+    setSec(s, true);   // 페이지를 열 때마다 모두 접힌 상태로 시작
     s.querySelector('.sec-head .sec-toggle').addEventListener('click', () => { setSec(s, !s.classList.contains('collapsed')); save(); syncAll(); });
   });
   document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', () => {
