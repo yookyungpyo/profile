@@ -326,6 +326,13 @@ details.older .timeline { margin-top: 0; }
 .ax-time p { margin-top: 6px; font-size: 13.5px; color: var(--muted); line-height: 1.6; }
 .ax-main { margin-top: 20px; padding: 32px; }
 .agents { margin-top: 12px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.agent-lib { margin-top: 48px; padding: 28px; border-radius: 24px; background: var(--surface-2); border: 1px solid var(--line); }
+.lib-head h3 { margin-top: 6px; font-size: 20px; font-weight: 700; }
+.lib-head p:not(.label) { margin-top: 4px; color: var(--muted); font-size: 14px; }
+.agent-group { margin-top: 28px; }
+.agent-group .group-head { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: var(--accent); padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.agent-group .group-head span { font-family: var(--mono); font-size: 12px; font-weight: 500; color: var(--muted); }
+@media (max-width: 640px) { .agent-lib { padding: 18px; } }
 .agent { padding: 22px; display: flex; flex-direction: column; gap: 8px; min-width: 0; transition: border-color .2s; }
 .agent:hover { border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
 .agent .meta { font-family: var(--mono); font-size: 12px; color: var(--accent); }
@@ -822,7 +829,10 @@ footer { padding-block: 0 48px; color: var(--muted); font-size: 13px; display: f
         <li data-agent="verify"><b>평가위원 검증</b><small>평가 관점 최종 검토</small></li>
       </ol>
     </div>
-    <div class="agents" id="agents"></div>
+    <div class="agent-lib">
+      <div class="lib-head"><p class="label">Library</p><h3>그 밖의 에이전트·AI 서비스</h3><p>분야별로 직접 만들거나 적용한 에이전트와 서비스입니다.</p></div>
+      <div id="agents"></div>
+    </div>
 
     </div>
   </div>
@@ -961,8 +971,12 @@ footer { padding-block: 0 48px; color: var(--muted); font-size: 13px; display: f
     ['in', '제안서 레이아웃 Agent', '제안 장표 레이아웃을 구조화해 재사용하는 슬라이드 생성 체계', '고도화 중'],
   ];
   const ag = document.getElementById('agents');
-  ag.innerHTML = A.map(([s, t, d, st]) =>
-    `<article class="card agent" data-s="${s}"><p class="meta">${AS[s]}</p><h4>${esc(t)}</h4><p>${esc(d).replace('System One Model', '<b class="hl">System One Model</b>')}</p><p class="stage">${esc(st)}</p></article>`).join('');
+  const card = ([s, t, d, st]) =>
+    `<article class="card agent" data-s="${s}"><h4>${esc(t)}</h4><p>${esc(d).replace('System One Model', '<b class="hl">System One Model</b>')}</p><p class="stage">${esc(st)}</p></article>`;
+  ag.innerHTML = Object.keys(AS).map(s => {
+    const items = A.filter(a => a[0] === s);
+    return `<div class="agent-group" data-s="${s}"><p class="group-head">${AS[s]}<span>${items.length}</span></p><div class="agents">${items.map(card).join('')}</div></div>`;
+  }).join('');
   const abtns = document.querySelectorAll('#agent-filters button');
   const feat = document.querySelector('#ax .ax-main');
   abtns.forEach(b => {
@@ -971,7 +985,7 @@ footer { padding-block: 0 48px; color: var(--muted); font-size: 13px; display: f
     if (!b.querySelector('.n')) b.insertAdjacentHTML('beforeend', `<span class="n">${n}</span>`);
     b.addEventListener('click', () => {
       abtns.forEach(x => x.setAttribute('aria-pressed', x === b));
-      ag.querySelectorAll('.agent').forEach(c => { c.hidden = f !== 'all' && c.dataset.s !== f; });
+      ag.querySelectorAll('.agent-group').forEach(g => { g.hidden = f !== 'all' && g.dataset.s !== f; });
       feat.hidden = f !== 'all' && f !== 'sales';
     });
   });
